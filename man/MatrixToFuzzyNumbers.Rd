@@ -2,7 +2,7 @@
 % Please edit documentation in R/MatrixToFuzzyNumbers.R
 \name{MatrixToFuzzyNumbers}
 \alias{MatrixToFuzzyNumbers}
-\title{Conversion of matrix to a list of fuzzy numbers.}
+\title{Conversion of a matrix to a list of fuzzy numbers.}
 \usage{
 MatrixToFuzzyNumbers(fuzzyMatrix, varNames = NA)
 }
@@ -15,16 +15,17 @@ MatrixToFuzzyNumbers(fuzzyMatrix, varNames = NA)
 The output is given as a list of fuzzy numbers.
 }
 \description{
-`MatrixToFuzzyNumbers` converts matrix into a list of triangular or trapezoidal fuzzy numbers.
+`MatrixToFuzzyNumbers` converts a matrix into a list of triangular or trapezoidal fuzzy numbers.
 }
 \details{
 The procedure converts the given matrix to a list of triangular or trapezoidal fuzzy numbers.
-If the input matrix has 3 columns, then they are treated as descriptions of consecutive 
-or 4 (for trapezoidal ones) columns.
-The values in these columns are treated as
+If the input matrix has 3 columns, then they are treated as descriptions of consecutive triangular fuzzy
+numbers.
+In the case of 4 columns, we get trapezoidal fuzzy numbers.
+The values in these columns are equal to
 the left supports, cores (or left and right ends of the cores for trapezoidal fuzzy 
 numbers) and right supports. 
-Each row is related to one fuzzy number.
+Each row is related to single fuzzy number.
 }
 \examples{
 
@@ -42,5 +43,5 @@ MatrixToFuzzyNumbers(matrix1)
 
 }
 \seealso{
-\code{\link{FuzzyNumbersToMatrix}} for conversion of a list of fuzzy numbers into matrix.
+\code{\link{FuzzyNumbersToMatrix}} for conversion of a list of fuzzy numbers into a matrix.
 }

@@ -6,7 +6,17 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of FuzzyImputationTest is to …
+The goal of FuzzyImputationTest is to impute (i.e., replace missing
+values given by NAs) dataset that consists of triangular or trapezoidal
+fuzzy numbers and check quality of such an imputation. To impute fuzzy
+values, various imputation methods - both general (like miceRanger,
+missingForest, VIM), and specific ones (DIMP) - are used. To check the
+quality of the imputation process, the dataset without missing values
+can be used, and then it is tested with the whole pack of procedures.
+These procedures are related to calculation of statistics like the mean,
+standard deviation, and distance measures for fuzzy numbers, together
+with obtaining different error values, and conduction of statistical
+tests based on the epistemic bootstrap.
 
 ## Installation
 

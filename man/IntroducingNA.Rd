@@ -7,7 +7,7 @@
 IntroducingNA(dataMatrix, percentage = 0.05)
 }
 \arguments{
-\item{dataMatrix}{Name of the input matrix.}
+\item{dataMatrix}{Name of the input matrix (or list, or data frame).}
 
 \item{percentage}{Desired percentage of missing values (NAs) in each row.}
 }
@@ -20,7 +20,7 @@ The output is given as a matrix.
 \details{
 The procedure changes randomly some values in the specified matrix to "missing values" (denoted by NA).
 Number of these missing values in each row is given by the parameter \code{percentage}.
-If the input is a list of fuzzy numbers or the data frame, then it is automatically converted to a matrix.
+If the input is a list of fuzzy numbers or data frame, then it is automatically converted to a matrix.
 }
 \examples{
 

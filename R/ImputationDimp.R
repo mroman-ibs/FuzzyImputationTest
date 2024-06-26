@@ -1,14 +1,15 @@
 #' DIMP (d-imputation) method for fuzzy numbers.
 #'
 #' @description
-#' `ImputationDimp` imputes (i.e., replaces missing values) fuzzy numbers using DIMP (d-imputation) method.
+#' `ImputationDimp` imputes (i.e., replaces missing values) fuzzy numbers using the DIMP (d-imputation) method.
 #'
 #' @details
 #' The procedure randomly imputes missing values (NAs) with suitable data in the case of the dataset (or matrix, or list)
 #' consisting of fuzzy numbers (triangular fuzzy numbers if \code{trapezoidal=FALSE} is set, or trapezoidal if the default
 #' \code{trapezoidal=TRUE} is used).
-#' The output is given as a matrix without NAs, where each row is related to fuzzy numbers (with 3 values for the triangular fuzzy numbers,
+#' The output is given as a matrix without NAs, where each row is related to fuzzy numbers (given by 3 values for the triangular fuzzy numbers,
 #' or 4 values in the case of trapezoidal ones) for the consecutive variables.
+#' Many fuzzy variables (not the only one) can be used. 
 #' The input has to consist of fuzzy numbers of the same types (i.e., mixing triangular and trapezoidal fuzzy numbers is not allowed).
 #'
 #'
@@ -19,7 +20,7 @@
 #'
 #'
 #'
-#' @param dataToImpute Name of the input matrix (data frame or a list) of fuzzy numbers with some NAs.
+#' @param dataToImpute Name of the input matrix (data frame or list) of fuzzy numbers with some NAs.
 #'
 #'
 #' @param trapezoidal Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.
@@ -45,7 +46,7 @@
 #' suppRightPD="runif", parSuppRightPD=list(min=0,max=0.6),
 #' type="trapezoidal")
 #' 
-#' # convert fuzzy data into matrix
+#' # convert fuzzy data into a matrix
 #' 
 #' matrix1 <- FuzzyNumbersToMatrix(list1$value)
 #' 
@@ -88,12 +89,7 @@ ImputationDimp <- function(dataToImpute,trapezoidal=TRUE,...)
     
     dataToImpute <- FuzzyNumbersToMatrix(dataToImpute,trapezoidal = trapezoidal,...)
     
-  } else {
-    
-    
-    dataToImpute <- dataToImpute
-    
-  }
+  } 
   
   # number of all variables
   

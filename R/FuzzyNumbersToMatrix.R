@@ -1,25 +1,26 @@
-#' Conversion of list of fuzzy numbers to matrix.
+#' Conversion of a list of fuzzy numbers into a matrix.
 #'
 #' @description
-#' `FuzzyNumbersToMatrix` converts a list of triangular or trapezoidal fuzzy numbers into matrix.
+#' `FuzzyNumbersToMatrix` converts a list of triangular or trapezoidal fuzzy numbers into a matrix.
 #'
 #' @details
 #' The procedure converts the given list of triangular or trapezoidal fuzzy numbers into a matrix.
-#' It is necessary to select the appropriate type of these fuzzy numbers (using \code{trapezoidal=FALSE} for triangular fuzzy
+#' It is necessary to select the appropriate type of these fuzzy numbers (using \code{trapezoidal=FALSE} for
+#'  triangular fuzzy
 #' numbers or the default \code{trapezoidal=TRUE} for trapezoidal ones)
 #' The output matrix has 3 (for triangular fuzzy numbers)
-#' or 4 (for trapezoidal ones) columns with the values of the left supports, cores (or left and right ends of the cores for trapezoidal fuzzy 
-#' numbers) and right supports. 
-#' Each row is related to one fuzzy number.
+#' or 4 (for trapezoidal ones) columns with the values of the left supports, cores (or the left and right ends of the cores for trapezoidal fuzzy 
+#' cores) and right supports. 
+#' Each row is related to single fuzzy number.
 #'
 #'
 #' @return
 #' The output is given as a matrix with 3 (for triangular fuzzy numbers)
-#' or 4 (for trapezoidal ones) columns and the number of rows that is equal to number of fuzzy values.
+#' or 4 (for trapezoidal ones) columns and the number of rows is equal to number of fuzzy values.
 #'
 #'
 #'
-#' @seealso \code{\link{MatrixToFuzzyNumbers}} for conversion of matrix to fuzzy numbers
+#' @seealso \code{\link{MatrixToFuzzyNumbers}} for conversion of a matrix to fuzzy numbers
 #'
 #'
 #' @param fuzzyList Name of the list with fuzzy numbers.
@@ -47,11 +48,11 @@
 #' suppRightPD="runif", parSuppRightPD=list(min=0,max=0.6),
 #' type="trapezoidal")
 #'
-#' # check first fuzzy number
+#' # check the first fuzzy number
 #' 
 #' list1$value[[1]]
 #' 
-#' # convert fuzzy numbers to a matrix and check its beginning
+#' # convert fuzzy numbers to a matrix and check the first value
 #'
 #'head(FuzzyNumbersToMatrix(list1$value))
 #'

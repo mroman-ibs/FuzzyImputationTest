@@ -6,7 +6,7 @@
 #' @details
 #' The procedure changes randomly some values in the specified matrix to "missing values" (denoted by NA).
 #' Number of these missing values in each row is given by the parameter \code{percentage}.
-#' If the input is a list of fuzzy numbers or the data frame, then it is automatically converted to a matrix.
+#' If the input is a list of fuzzy numbers or data frame, then it is automatically converted to a matrix.
 #'
 #'
 #' @return
@@ -16,7 +16,7 @@
 #'
 #'
 #'
-#' @param dataMatrix Name of the input matrix.
+#' @param dataMatrix Name of the input matrix (or list, or data frame).
 #'
 #'
 #' @param percentage Desired percentage of missing values (NAs) in each row.
