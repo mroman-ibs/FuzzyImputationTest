@@ -11,7 +11,7 @@
 #'  or trapezoidal ones if the default \code{trapezoidal=TRUE} is used).
 #' The output is given as a matrix where each row is related to fuzzy numbers (with 3 values for the triangular fuzzy numbers,
 #' or 4 values in the case of trapezoidal ones) for the consecutive variables.
-#' The input has to consist of fuzzy numbers of the same types (i.e., mixing triangular and trapezoidal fuzzy numbers is not allowed).
+#' The input has to consist of fuzzy numbers of the same type (i.e., mixing triangular and trapezoidal fuzzy numbers is not allowed).
 #'
 #'
 #' @return

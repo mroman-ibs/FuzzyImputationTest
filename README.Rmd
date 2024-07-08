@@ -1,6 +1,8 @@
 ---
 output: github_document
+bibliography: references.bib
 ---
+
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -19,14 +21,32 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 The goal of FuzzyImputationTest is to impute (i.e., replace missing values given by NAs) dataset that
-consists of triangular or trapezoidal fuzzy numbers and check quality of such an imputation.
-To impute fuzzy values, various imputation methods - both general (like miceRanger, missingForest, VIM),
-and specific ones (DIMP) - are used.
-To check the quality of the imputation process, the dataset without missing values can be used, and then
-it is tested with the whole pack of procedures.
-These procedures are related to calculation of statistics like the mean, standard deviation, and distance 
+consists of triangular or trapezoidal fuzzy numbers, and check quality of such an imputation.
+To impute fuzzy values, various imputation methods - both general (like miceRanger, missingForest, knn),
+and specific ones (DIMP) - can be used.
+To check the quality of the imputation process, the dataset without missing values can be specified, and then
+it is tested with the whole set of procedures.
+These procedures are related to calculation of various sample statistics like the mean, standard deviation, and some special distance 
 measures for fuzzy numbers, together with obtaining different error values, and conduction of statistical
-tests based on the epistemic bootstrap.
+tests based on the epistemic bootstrap (see [@grzegorzewski2021;@Grzegorzewski_Romaniuk_2022;@PGMR2024AMS]) from 
+\code{FuzzySimRes} package (see [@FuzzySimRes]).
+There are also special procedures to fuzzify the input and introduce some NAs when necessary.
+
+The following procedures are available in the library:
+
++ Imputation procedures:
+  + *FuzzyImputation* - The main method to impute fuzzy values.
+  + *ImputationDimp* - The DIMP (d-imputation) method for fuzzy numbers.
+  
++ Conversion procedures:
+  + *FuzzyNumbersToMatrix* - Conversion of a list of fuzzy numbers into a matrix.
+  + *MatrixToFuzzyNumbers* - Conversion of a matrix to a list of fuzzy numbers.
+  
++ Additional procedures:
+  + *IntroducingNA* - Introducing NAs to the specified matrix.
+  + *RemoveNotFuzzy* - Removing values that are not fuzzy numbers.
+  + *FuzzifyMatrix* - Fuzzify the real-valued variables and construct trapezoidal or triangular fuzzy numbers.
+
 
 
 ## Installation
@@ -39,14 +59,8 @@ You can install the development version of FuzzyImputationTest from [GitHub](htt
 
 
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
 
 
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+## References
+
