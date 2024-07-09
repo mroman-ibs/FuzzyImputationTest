@@ -32,6 +32,9 @@ The following procedures are available in the library:
     a matrix.
   - *MatrixToFuzzyNumbers* - Conversion of a matrix to a list of fuzzy
     numbers.
+- Calculation of the distance measures:
+  - *MeasureAHD* - Calculation of the AHD (Area Hight Distance) measure
+    between two trapezoidal or triangular fuzzy numbers.
 - Additional procedures:
   - *IntroducingNA* - Introducing NAs to the specified matrix.
   - *RemoveNotFuzzy* - Removing values that are not fuzzy numbers.
