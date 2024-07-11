@@ -1,10 +1,10 @@
-#' Function to calculate the AHD distance between two fuzzy numbers.
+#' Function to calculate the HSD distance between two fuzzy numbers.
 #'
 #' @description
-#' `MeasureAHD` calculates the AHD (Area Hight Distance) measure between two trapezoidal or triangular fuzzy numbers.
+#' `MeasureHSD` calculates the HSD (Area Hight Distance) measure between two trapezoidal or triangular fuzzy numbers.
 #'
 #' @details
-#' The procedure calculates the AHD (Area Hight Distance) measure of the distance between two trapezoidal or triangular fuzzy numbers.
+#' The procedure calculates the HSD (Hight Source Distance) measure of the distance between two trapezoidal or triangular fuzzy numbers.
 #' The input values can be given as triangular/trapezoidal fuzzy numbers using the objects defined in \code{FuzzyNumbers} package
 #' or vectors with three (in the case of triangular fuzzy numbers) or four (for trapezoidal fuzzy numbers) values related to
 #' left end of the support, the core (or its interval, respectively), and the right end of the support.
@@ -15,7 +15,7 @@
 #' The output is given as a numerical value.
 #'
 #'
-#' @seealso \code{\link{MeasureHSD}, \link{MeasureEuclidean}} for other procedures to calculate distance measures.
+#' @seealso \code{\link{MeasureAHD}, \link{MeasureEuclidean}} for other procedures to calculate distance measures.
 #'
 #'
 #' @param value1 The first input triangular or trapezoidal fuzzy number.
@@ -24,13 +24,11 @@
 #'
 #'
 #' @param trapezoidal Logical value depending on the type of input fuzzy values (triangular or trapezoidal ones).
-#' 
-#' @param ... Additional parameters passed to other functions.
 #'
 #' @references
 #'
-#' M. Amirfakhrian, S. Yeganehmanesh, and P. Grzegorzewski, “A new distance on fuzzy semi-numbers",
-#' Soft Computing, vol. 22, no. 14, pp. 4511–4524, 2018
+#' S. Yeganehmanesh, M. Amirfakhrian, and P. Grzegorzewski, “Fuzzy semi-numbers and a distance on them with a case study in medicine,”
+#' Mathematical Sciences, vol. 12, no. 1, pp. 41–52, 2018
 #'
 #' @examples
 #'
@@ -44,7 +42,7 @@
 #' 
 #' # calculate the distance
 #' 
-#' MeasureAHD(tpfn1,tpfn2)
+#' MeasureHSD(tpfn1,tpfn2)
 #' 
 #' # now we use objects from the FuzzyNumbers package
 #'
@@ -56,7 +54,7 @@
 #' 
 #' tpfn2 <- TrapezoidalFuzzyNumber(2,6,8,10)
 #' 
-#' MeasureAHD(tpfn1,tpfn2)
+#' MeasureHSD(tpfn1,tpfn2)
 #' 
 #'
 #' @export
@@ -64,27 +62,27 @@
 
 
 
-# AHD measure for two fuzzy numbers
+# HSD measure for two fuzzy numbers
 
 
-MeasureAHD <- function(value1,value2,trapezoidal=TRUE,...)
+MeasureHSD <- function(value1,value2,trapezoidal=TRUE)
 {
   # some conversions
   
   if(methods::is(value1,"TrapezoidalFuzzyNumber"))
   {
     value1 <- c(FuzzyNumbers::supp(value1)[1],
-                      FuzzyNumbers::core(value1)[1],
-                      FuzzyNumbers::core(value1)[2],
-                      FuzzyNumbers::supp(value1)[2])
+                FuzzyNumbers::core(value1)[1],
+                FuzzyNumbers::core(value1)[2],
+                FuzzyNumbers::supp(value1)[2])
   }
   
   if(methods::is(value2,"TrapezoidalFuzzyNumber"))
   {
     value2 <- c(FuzzyNumbers::supp(value2)[1],
-                      FuzzyNumbers::core(value2)[1],
-                      FuzzyNumbers::core(value2)[2],
-                      FuzzyNumbers::supp(value2)[2])
+                FuzzyNumbers::core(value2)[1],
+                FuzzyNumbers::core(value2)[2],
+                FuzzyNumbers::supp(value2)[2])
   }
   
   
@@ -103,8 +101,8 @@ MeasureAHD <- function(value1,value2,trapezoidal=TRUE,...)
   
   output <- abs(HValue(fuzzyNumber1)- HValue(fuzzyNumber2))+
     abs(HAmbiguity(fuzzyNumber1)-HAmbiguity(fuzzyNumber2))+
-    abs(HArea(fuzzyNumber1)-HArea(fuzzyNumber2))+
     HDistance(fuzzyNumber1,fuzzyNumber2)
+  
   
   
   return(output/2)

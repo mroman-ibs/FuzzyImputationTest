@@ -24,6 +24,8 @@
 #'
 #'
 #' @param trapezoidal Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.
+#' 
+#' @param ... Additional parameters passed to other functions
 #'
 #'
 #' @examples
@@ -113,7 +115,7 @@ ImputationDimp <- function(dataToImpute,trapezoidal=TRUE,...)
     
     # cat("rangeToCheck: ", rangeToCheck, "\n")
     
-    # wybieramy tylko tą zmienną
+    # select only this variable
     
     dataSingleVar <- dataToImpute[,rangeToCheck]
     
@@ -127,7 +129,7 @@ ImputationDimp <- function(dataToImpute,trapezoidal=TRUE,...)
     
     # print(dataSingleVar)
     
-    # wstawiamy do macierzy wyjściowej
+    # input to the output matrix
     
     output[,rangeToCheck] <- dataSingleVar
     

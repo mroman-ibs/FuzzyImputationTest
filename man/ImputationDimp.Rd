@@ -10,6 +10,8 @@ ImputationDimp(dataToImpute, trapezoidal = TRUE, ...)
 \item{dataToImpute}{Name of the input matrix (data frame or list) of fuzzy numbers with some NAs.}
 
 \item{trapezoidal}{Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.}
+
+\item{...}{Additional parameters passed to other functions}
 }
 \value{
 The output is given as a matrix.

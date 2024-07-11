@@ -37,6 +37,7 @@
 #' 
 #' @param varNames Names of the input variables.
 #'
+#' @param ... Additional parameters passed to other functions.
 #'
 #' @examples
 #'
@@ -64,7 +65,7 @@
 
 # fuzzify data
 
-FuzzifyMatrix <- function(crispMatrix,coreFactor=0.2,supportFactor=0.2,trapezoidal=TRUE,varNames=colnames(crispMatrix))
+FuzzifyMatrix <- function(crispMatrix,coreFactor=0.2,supportFactor=0.2,trapezoidal=TRUE,varNames=colnames(crispMatrix),...)
 {
   
   if(is.data.frame(crispMatrix))
@@ -109,7 +110,7 @@ FuzzifyMatrix <- function(crispMatrix,coreFactor=0.2,supportFactor=0.2,trapezoid
   
   # calculate sample statistics using columns
   
-  sds <- apply(crispMatrix,MARGIN = 2,FUN = sd)
+  sds <- apply(crispMatrix,MARGIN = 2,FUN = stats::sd)
   
   # generate fuzzified values
   
@@ -120,23 +121,23 @@ FuzzifyMatrix <- function(crispMatrix,coreFactor=0.2,supportFactor=0.2,trapezoid
     {
       # start from the core
       
-      ranNumbers <- runif(n=obsNumb,min = 0,max=coreFactor*sds[i])
+      ranNumbers <- stats::runif(n=obsNumb,min = 0,max=coreFactor*sds[i])
       
       output[,paste(varNames[i],".X2", sep="")] <- crispMatrix[,varNames[i]] - ranNumbers
       
-      ranNumbers <- runif(n=obsNumb,min = 0,max=coreFactor*sds[i])
+      ranNumbers <- stats::runif(n=obsNumb,min = 0,max=coreFactor*sds[i])
       
       output[,paste(varNames[i],".X3", sep="")] <- crispMatrix[,varNames[i]] + ranNumbers
       
       # left end of the support
       
-      ranNumbers <- runif(n=obsNumb,min = 0,max=supportFactor*sds[i])
+      ranNumbers <- stats::runif(n=obsNumb,min = 0,max=supportFactor*sds[i])
       
       output[,paste(varNames[i],".X1", sep="")] <- output[,paste(varNames[i],".X2", sep="")] - ranNumbers
       
       # right end of the support
       
-      ranNumbers <- runif(n=obsNumb,min = 0,max=supportFactor*sds[i])
+      ranNumbers <- stats::runif(n=obsNumb,min = 0,max=supportFactor*sds[i])
       
       output[,paste(varNames[i],".X4", sep="")] <- output[,paste(varNames[i],".X3", sep="")] + ranNumbers
       
@@ -155,13 +156,13 @@ FuzzifyMatrix <- function(crispMatrix,coreFactor=0.2,supportFactor=0.2,trapezoid
       
       # left end of the support
       
-      ranNumbers <- runif(n=obsNumb,min = 0,max=supportFactor*sds[i])
+      ranNumbers <- stats::runif(n=obsNumb,min = 0,max=supportFactor*sds[i])
       
       output[,paste(varNames[i],".X1", sep="")] <- output[,paste(varNames[i],".X2", sep="")] - ranNumbers
       
       # right end of the support
       
-      ranNumbers <- runif(n=obsNumb,min = 0,max=supportFactor*sds[i])
+      ranNumbers <- stats::runif(n=obsNumb,min = 0,max=supportFactor*sds[i])
       
       output[,paste(varNames[i],".X3", sep="")] <- output[,paste(varNames[i],".X2", sep="")] + ranNumbers
       

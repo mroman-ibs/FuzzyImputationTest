@@ -4,12 +4,16 @@
 \alias{RemoveNotFuzzy}
 \title{Removing values that are not fuzzy numbers.}
 \usage{
-RemoveNotFuzzy(trueData, imputedData, trapezoidal = TRUE)
+RemoveNotFuzzy(trueData, imputedData, trapezoidal = TRUE, ...)
 }
 \arguments{
 \item{trueData}{Name of the input matrix (data frame or list) that is used to restore erroneous fuzzy numbers.}
 
 \item{imputedData}{Name of the input matrix (data frame or list) with fuzzy numbers to check their correctness.}
+
+\item{trapezoidal}{Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.}
+
+\item{...}{Additional parameters passed to other functions.}
 }
 \value{
 The output is given as a matrix.

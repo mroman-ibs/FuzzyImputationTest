@@ -13,7 +13,7 @@
 
 
 
-errorTypes <- c("MAE","WMAE","MSE","WMSE","NMRSE")
+errorTypes <- c("MAE","WMAE","MSE","WMSE","NRMSE")
 
 measuresTypes <- c("TrueMean","ImpMean", "AbsDiffTrueImpMean", "GenMean","GenImpMean", "AbsDiffGenImpMean","TrueSD","ImpSD",
                    "AbsDiffTrueImpSD","GenSD","GenImpSD","AbsDiffGenImpSD")

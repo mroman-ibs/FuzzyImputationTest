@@ -35,6 +35,8 @@ The following procedures are available in the library:
 - Calculation of the distance measures:
   - *MeasureAHD* - Calculation of the AHD (Area Hight Distance) measure
     between two trapezoidal or triangular fuzzy numbers.
+  - *MeasureHSD* - Calculation of the HSD (Hight Source Distance)
+    measure between two trapezoidal or triangular fuzzy numbers.
 - Additional procedures:
   - *IntroducingNA* - Introducing NAs to the specified matrix.
   - *RemoveNotFuzzy* - Removing values that are not fuzzy numbers.

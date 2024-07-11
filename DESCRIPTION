@@ -4,14 +4,12 @@ Title: Imputation Procedures and Quality Tests for Fuzzy Data
 Version: 0.1.0
 Authors@R: c(
     person("Maciej", "Romaniuk", email = "mroman@ibspan.waw.pl",
-    role = c("cre","aut"),comment = c(ORCID = "0000-0001-9649-396X")),
-    person("Przemyslaw", "Grzegorzewski", email = "przemyslaw.grzegorzewski@ibspan.waw.pl",
-    role = "aut",comment = c(ORCID = "0000-0002-5191-4123")))
+    role = c("cre","aut"),comment = c(ORCID = "0000-0001-9649-396X"))
     )
 Description: Imputation.
 License: GPL-3
 NeedsCompilation: yes
-Imports: stats, FuzzySimRes, FuzzyNumbers, missForest, miceRanger, VIM
+Imports: stats, methods, FuzzySimRes, FuzzyNumbers, missForest, miceRanger, VIM
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.1

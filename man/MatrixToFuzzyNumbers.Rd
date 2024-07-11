@@ -4,12 +4,14 @@
 \alias{MatrixToFuzzyNumbers}
 \title{Conversion of a matrix to a list of fuzzy numbers.}
 \usage{
-MatrixToFuzzyNumbers(fuzzyMatrix, varNames = NA)
+MatrixToFuzzyNumbers(fuzzyMatrix, varNames = NA, ...)
 }
 \arguments{
 \item{fuzzyMatrix}{Name of the matrix with fuzzy numbers.}
 
-\item{varNames}{Optional names for values of the output list}
+\item{varNames}{Optional names for values of the output list.}
+
+\item{...}{Additional parameters passed to other functions.}
 }
 \value{
 The output is given as a list of fuzzy numbers.

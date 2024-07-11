@@ -20,6 +20,8 @@
 #'
 #'
 #' @param percentage Desired percentage of missing values (NAs) in each row.
+#' 
+#' @param ... Additional parameters passed to other functions.
 #'
 #'
 #' @examples
@@ -42,7 +44,7 @@
 
 # function to impute NAs
 
-IntroducingNA <- function(dataMatrix,percentage=0.05)
+IntroducingNA <- function(dataMatrix,percentage=0.05,...)
 {
   
   # conversions
@@ -57,7 +59,7 @@ IntroducingNA <- function(dataMatrix,percentage=0.05)
   {
     # conversion to matrix
     
-    dataMatrix <- FuzzyNumbersToMatrix(dataMatrix,trapezoidal = trapezoidal,...)
+    dataMatrix <- FuzzyNumbersToMatrix(dataMatrix,...)
     
   } else {
     

@@ -25,6 +25,10 @@
 #'
 #'
 #' @param imputedData Name of the input matrix (data frame or list) with fuzzy numbers to check their correctness.
+#' 
+#' @param trapezoidal Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.
+#' 
+#' @param ... Additional parameters passed to other functions.
 #'
 #'
 #' @examples
@@ -50,7 +54,7 @@
 
 # function to remove nonFNs
 
-RemoveNotFuzzy <- function(trueData,imputedData,trapezoidal=TRUE)
+RemoveNotFuzzy <- function(trueData,imputedData,trapezoidal=TRUE,...)
 {
   # conversions
   

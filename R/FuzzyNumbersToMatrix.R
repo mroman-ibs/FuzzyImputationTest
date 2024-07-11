@@ -29,6 +29,7 @@
 #'
 #' @param varNames Optional names for columns of the output matrix.
 #'
+#' @param ... Additional parameters passed to other functions.
 #'
 #' @examples
 #'
@@ -54,7 +55,7 @@
 #' 
 #' # convert fuzzy numbers to a matrix and check the first value
 #'
-#'head(FuzzyNumbersToMatrix(list1$value))
+#' head(FuzzyNumbersToMatrix(list1$value))
 #'
 #'
 #' @export
@@ -63,7 +64,7 @@
 
 # conversion of list of TRFN/TPFNs to matrix
 
-FuzzyNumbersToMatrix <- function(fuzzyList,trapezoidal=TRUE,varNames=NA)
+FuzzyNumbersToMatrix <- function(fuzzyList,trapezoidal=TRUE,varNames=NA,...)
 {
   numberOfFN <- length(fuzzyList)
   

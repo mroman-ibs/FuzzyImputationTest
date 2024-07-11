@@ -25,7 +25,9 @@
 #' @param fuzzyMatrix Name of the matrix with fuzzy numbers.
 #'
 #'
-#' @param varNames Optional names for values of the output list
+#' @param varNames Optional names for values of the output list.
+#' 
+#' @param ... Additional parameters passed to other functions.
 #'
 #'
 #' @examples
@@ -48,7 +50,7 @@
 
 # conversion of matrix to list of TRFN/TPFN
 
-MatrixToFuzzyNumbers <- function(fuzzyMatrix, varNames=NA)
+MatrixToFuzzyNumbers <- function(fuzzyMatrix, varNames=NA,...)
 {
   if(nrow(fuzzyMatrix)==0)
   {

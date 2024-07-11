@@ -9,7 +9,8 @@ FuzzifyMatrix(
   coreFactor = 0.2,
   supportFactor = 0.2,
   trapezoidal = TRUE,
-  varNames = colnames(crispMatrix)
+  varNames = colnames(crispMatrix),
+  ...
 )
 }
 \arguments{
@@ -24,6 +25,8 @@ randomly generated increments of the support.}
 \item{trapezoidal}{Logical value that indicates if trapezoidal (or triangular, otherwise) fuzzy numbers should be generated.}
 
 \item{varNames}{Names of the input variables.}
+
+\item{...}{Additional parameters passed to other functions.}
 }
 \value{
 The output is given as a matrix with three (in the case of triangular fuzzy numbers) or four (for trapezoidal

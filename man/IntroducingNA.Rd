@@ -4,12 +4,14 @@
 \alias{IntroducingNA}
 \title{Introducing NAs to the specified matrix.}
 \usage{
-IntroducingNA(dataMatrix, percentage = 0.05)
+IntroducingNA(dataMatrix, percentage = 0.05, ...)
 }
 \arguments{
 \item{dataMatrix}{Name of the input matrix (or list, or data frame).}
 
 \item{percentage}{Desired percentage of missing values (NAs) in each row.}
+
+\item{...}{Additional parameters passed to other functions.}
 }
 \value{
 The output is given as a matrix.

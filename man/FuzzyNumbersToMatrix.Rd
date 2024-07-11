@@ -4,7 +4,7 @@
 \alias{FuzzyNumbersToMatrix}
 \title{Conversion of a list of fuzzy numbers into a matrix.}
 \usage{
-FuzzyNumbersToMatrix(fuzzyList, trapezoidal = TRUE, varNames = NA)
+FuzzyNumbersToMatrix(fuzzyList, trapezoidal = TRUE, varNames = NA, ...)
 }
 \arguments{
 \item{fuzzyList}{Name of the list with fuzzy numbers.}
@@ -12,6 +12,8 @@ FuzzyNumbersToMatrix(fuzzyList, trapezoidal = TRUE, varNames = NA)
 \item{trapezoidal}{Logical value depending on the type of fuzzy values (triangular or trapezoidal ones).}
 
 \item{varNames}{Optional names for columns of the output matrix.}
+
+\item{...}{Additional parameters passed to other functions.}
 }
 \value{
 The output is given as a matrix with 3 (for triangular fuzzy numbers)
