@@ -1,31 +1,23 @@
-#' Statistical epistemic tests the imputed values.
+#' Calculation of the fuzzy measures for the imputed values.
 #'
 #' @description
-#' `ApplyStatisticalTests` applies the epistemic goodness-of-fit test for
-#' fuzzy data to check the quality of the imputed values.
+#' `CalculateFuzzyMeasures` calculates the various types of fuzzy measures between two datasets -- the true and the imputed one.
 #'
 #' @details
-#' The procedure applies three types of the epistemic goodness-of-fit Kolmogorov-Smirnov tests (\code{avs} - averaging statistic, 
-#' \code{ms} - multi-statistic, \code{res} - resampling algorithm) from the \code{FuzzySimRes}
-#' package to check the quality of the imputed values.
-#' To do this, three subsamples are used:
-#' * \code{true} - the dataset \code{trueData} without imputed values vs the values from the same dataset that are then imputed,
-#' * \code{imputed} - the dataset \code{trueData} without imputed values vs only the imputed values from \code{imputedData},
-#' * \code{parts} - only the imputed values from the dataset \code{trueData} vs their counterparts from \code{imputedData}.
-#' 
-#' To assess the respective imputation quality, p-values for \code{true} and \code{imputed} should be close to each other,
-#' and in the case of \code{parts}, they should exceed the selected significance level.
-#' 
-#'  
+#' The procedure calculates different types of the distance measures (Euclidean - the Euclidean measure,
+#' AHD - the AHD measure, HSD - the HSD measure)
+#' between two datasets - the first one with true values (set by \code{trueData}), and the second one (specified by \code{imputedData}) with
+#' the imputed variables.
+#' Only the truly imputed values are taken into account for these calculations.
+#' To properly distinguish the real values with their imputed counterparts, the additional matrix \code{imputedMask} should be provided.
+#' In this matrix, the logical value \code{TRUE} points out the cells with the imputed values.
+#' Otherwise, \code{FALSE} should be used.
 #' 
 #' All of the input datasets can be given as matrices or data frames.
-#' The statistical tests are performed only for the input values that are proper fuzzy numbers (triangular or trapezoidal ones).
-#' 
-#' @md
 #' 
 #'
 #' @return
-#' The output is given as a matrix (the rows are related to various types of the test and subsamples, the columns - to the variables).
+#' The output is given as a matrix (the rows are related to various types of the errors, the columns - to the variables).
 #'
 #'
 #'
@@ -38,11 +30,7 @@
 #' 
 #' @param imputedMask Matrix (or data frame) with logical values where \code{TRUE} indicates the cells with the imputed values.
 #' 
-#' @param cutsNumber Number of cuts for the epistemic bootstrap tests.
-#' 
-#' @param K Value of \code{K} for the \code{res} epistemic test.
-#' 
-#' @param trapezoidal Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset. 
+#' @param trapezoidal Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.
 #' 
 #' @param ... Additional parameters passed to other functions.
 #'
@@ -79,17 +67,17 @@
 #' 
 #' head(matrix1NA)
 #' 
-#' # impute missing values (with possible repetitions!)
+#' # impute missing values
 #' 
-#' matrix1DImp <- FuzzyImputation(matrix1NA,method="dimp",checkFuzzy=TRUE)
+#' matrix1DImp <- ImputationDimp(matrix1NA)
 #' 
 #' # find cells with NAs
 #' 
 #' matrix1Mask <- is.na(matrix1NA)
 #' 
-#' # apply statistical epistemic bootstrap tests
+#' # calculate fuzzy measures for the imputed values
 #' 
-#' ApplyStatisticalTests(matrix1,matrix1DImp,matrix1Mask,cutsNumber = 100, K=10)
+#' CalculateFuzzyMeasures(matrix1,matrix1DImp,matrix1Mask,trapezoidal=TRUE)
 #'
 #' 
 #'
@@ -97,9 +85,7 @@
 
 
 
-# main function to perform statistical tests
-
-ApplyStatisticalTests <- function(trueData,imputedData,imputedMask,trapezoidal=TRUE,cutsNumber=100,K=50,...)
+CalculateFuzzyMeasures <- function(trueData,imputedData,imputedMask,trapezoidal=TRUE,...)
 {
   # conversions
   
@@ -109,11 +95,29 @@ ApplyStatisticalTests <- function(trueData,imputedData,imputedMask,trapezoidal=T
     
   } 
   
+  if(is.list(trueData) && !is.data.frame(trueData))
+  {
+    # conversion to matrix
+    
+    trueData <- FuzzyNumbersToMatrix(trueData,trapezoidal = trapezoidal,...)
+    
+  }
+  
+  
   if(is.data.frame(imputedData))
   {
     imputedData <- data.matrix(imputedData)
     
   } 
+  
+  if(is.list(imputedData) && !is.data.frame(imputedData))
+  {
+    # conversion to matrix
+    
+    imputedData <- FuzzyNumbersToMatrix(imputedData,trapezoidal = trapezoidal,...)
+    
+  }
+  
   
   if(is.data.frame(imputedMask))
   {
@@ -133,9 +137,9 @@ ApplyStatisticalTests <- function(trueData,imputedData,imputedMask,trapezoidal=T
   
   # output matrix
   
-  output <- matrix(NA,ncol = varNumber, nrow = length(setsNames)*length(testsNames))
+  output <- matrix(NA,ncol = varNumber, nrow = length(distanceNames))
   
-  rownames(output) <- noquote(paste(rep(setsNames,each=3),testsNames,sep="+"))
+  rownames(output) <- distanceNames
   
   colnames(output) <- noquote(paste("V", 1:varNumber, sep=""))
   
@@ -155,12 +159,10 @@ ApplyStatisticalTests <- function(trueData,imputedData,imputedMask,trapezoidal=T
     
     # select only this variable for calculation of the measures
     
-    outputSingleVar <- ApplyStatisticalTestsSingleVar(trueData[,rangeToCheck],
+    outputSingleVar <- CalculateFuzzyMeasuresSingleVar(trueData[,rangeToCheck],
                                                        imputedData[,rangeToCheck],
                                                        imputedMask[,rangeToCheck],
-                                                      trapezoidal = trapezoidal,
-                                                      cutsNumber = cutsNumber,
-                                                      K=K)
+                                                       trapezoidal=trapezoidal)
     
     # input to the output matrix
     
@@ -171,5 +173,6 @@ ApplyStatisticalTests <- function(trueData,imputedData,imputedMask,trapezoidal=T
   return(output)
   
   
-  
 }
+
+  

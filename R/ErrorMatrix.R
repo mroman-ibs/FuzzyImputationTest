@@ -16,7 +16,7 @@
 #' 
 #'
 #' @return
-#' The output is a list of real values.
+#' The output is given as a matrix (the rows are related to various types of the errors, the columns - to the variables).
 #'
 #'
 #'
@@ -117,7 +117,17 @@ ErrorMatrix <- function(trueData,imputedData,imputedMask,...)
   
   rownames(output) <- errorTypes
   
-  colnames(output) <- c(noquote(paste("X", 1:variableNumber, sep="")),"mean")
+  if(is.null(colnames(trueData))==TRUE) {
+    
+    colnames(output) <- c(noquote(paste("X", 1:variableNumber, sep="")),"mean")
+    
+  } else {
+    
+    colnames(output) <- c(colnames(trueData),"mean")
+    
+  }
+  
+  
   
   # main loop
   

@@ -27,6 +27,13 @@ The following procedures are available in the library:
 - Imputation procedures:
   - *FuzzyImputation* - The main method to impute fuzzy values.
   - *ImputationDimp* - The DIMP (d-imputation) method for fuzzy numbers.
+- Testing procedures:
+  - *ErrorMatrix* - Calculation of the various errors between two
+    datasets - the true and the imputed one.
+  - *StatisticalMeasures* - Calculation of the various statistical
+    measures between the real and imputed data.
+  - *ApplyStatisticalTests* - Statistical epistemic tests the imputed
+    values.
 - Conversion procedures:
   - *FuzzyNumbersToMatrix* - Conversion of a list of fuzzy numbers into
     a matrix.
@@ -37,6 +44,8 @@ The following procedures are available in the library:
     between two trapezoidal or triangular fuzzy numbers.
   - *MeasureHSD* - Calculation of the HSD (Hight Source Distance)
     measure between two trapezoidal or triangular fuzzy numbers.
+  - *MeasureEuclidean* - Calculation of the Euclidean measure between
+    two trapezoidal or triangular fuzzy numbers.
 - Additional procedures:
   - *IntroducingNA* - Introducing NAs to the specified matrix.
   - *RemoveNotFuzzy* - Removing values that are not fuzzy numbers.

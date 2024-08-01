@@ -139,13 +139,7 @@ FuzzyImputation <- function(dataSet,method="dimp",trapezoidal=TRUE,checkFuzzy=FA
       
     }
     
-    # use fknn
     
-    if(method=="fknn") {
-      
-      outputMatrix <- ImputationkFkNNMethod(fuzzyMatrix,trapezoidal = trapezoidal,...)
-      
-    }
     
     # use missForest
     
@@ -181,11 +175,11 @@ FuzzyImputation <- function(dataSet,method="dimp",trapezoidal=TRUE,checkFuzzy=FA
     
     if(checkFuzzy) {
       
-      outputMatrix <- RemoveNotFuzzy(trueData=fuzzyMatrix,imputedData=outputMatrix,trapezoidal = trapezoidal)
+      fuzzyMatrix <- RemoveNotFuzzy(trueData=fuzzyMatrix,imputedData=outputMatrix,trapezoidal = trapezoidal)
       
       # are there some NAs still?
       
-      if(any(is.na(outputMatrix))) 
+      if(any(is.na(fuzzyMatrix))) 
       {
         
         stopImputation=FALSE
