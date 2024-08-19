@@ -57,6 +57,11 @@ The following procedures are available in the library:
 You can install the development version of FuzzyImputationTest from
 [GitHub](https://github.com/) with:
 
+``` r
+library(devtools)
+install_github("mroman-ibs/FuzzyImputationTest")
+```
+
 ## Example
 
 ## References
