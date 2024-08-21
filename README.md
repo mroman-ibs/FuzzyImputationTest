@@ -28,6 +28,8 @@ The following procedures are available in the library:
   - *FuzzyImputation* - The main method to impute fuzzy values.
   - *ImputationDimp* - The DIMP (d-imputation) method for fuzzy numbers.
 - Testing procedures:
+  - *ImputationTests* - The main benchmark function to check the quality
+    of the imputed fuzzy values.
   - *ErrorMatrix* - Calculation of the various errors between two
     datasets - the true and the imputed one.
   - *StatisticalMeasures* - Calculation of the various statistical
