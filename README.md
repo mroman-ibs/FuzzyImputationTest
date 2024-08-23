@@ -95,11 +95,11 @@ and Computer Science* 32 (2): 285–97.
 
 </div>
 
-<div id="ref-FuzzySimRes" class="csl-entry">
+<div id="ref-FuzzySimResart" class="csl-entry">
 
-Romaniuk, M., P. Grzegorzewski, and A. Parchami. 2024. “[FuzzySimRes:
+Romaniuk, M., P. Grzegorzewski, and A. Parchami. 2024. “FuzzySimRes:
 Epistemic Bootstrap – the Efficient Tool for Statistical Inference Based
-on Imprecise Data]().” *R Journal*.
+on Imprecise Data.” *R Journal*.
 
 </div>
 

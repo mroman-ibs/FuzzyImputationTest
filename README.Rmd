@@ -29,7 +29,7 @@ it is tested with the whole set of procedures.
 These procedures are related to calculation of various sample statistics like the mean, standard deviation, and some special distance 
 measures for fuzzy numbers, together with obtaining different error values, and conduction of statistical
 tests based on the epistemic bootstrap (see [@grzegorzewski2021;@Grzegorzewski_Romaniuk_2022;@PGMR2024AMS]) from 
-\code{FuzzySimRes} package (see [@FuzzySimRes]).
+\code{FuzzySimRes} package (see [@FuzzySimResart]).
 There are also special procedures to fuzzify the input and introduce some NAs when necessary.
 
 The following procedures are available in the library:
