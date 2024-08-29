@@ -9,6 +9,7 @@ FuzzyImputation(
   method = "dimp",
   trapezoidal = TRUE,
   checkFuzzy = FALSE,
+  verbose = TRUE,
   ...
 )
 }
@@ -21,6 +22,8 @@ FuzzyImputation(
 
 \item{checkFuzzy}{If \code{TRUE} is set, after each imputation, the output values are checked if they are proper fuzzy numbers.
 If there are some improper fuzzy numbers, they are removed, and the imputation procedure is repeated.}
+
+\item{verbose}{If \code{TRUE} is set, the current simulation number is printed.}
 
 \item{...}{Additional parameters that are passed to the imputation procedure.}
 }

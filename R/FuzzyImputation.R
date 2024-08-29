@@ -40,6 +40,8 @@
 #' @param checkFuzzy If \code{TRUE} is set, after each imputation, the output values are checked if they are proper fuzzy numbers.
 #' If there are some improper fuzzy numbers, they are removed, and the imputation procedure is repeated.
 #' 
+#' @param verbose If \code{TRUE} is set, the current simulation number is printed.
+#' 
 #' @param ... Additional parameters that are passed to the imputation procedure.
 #'
 #'
@@ -96,7 +98,7 @@
 
 # main method to impute values
 
-FuzzyImputation <- function(dataSet,method="dimp",trapezoidal=TRUE,checkFuzzy=FALSE,...)
+FuzzyImputation <- function(dataSet,method="dimp",trapezoidal=TRUE,checkFuzzy=FALSE,verbose=TRUE,...)
 {
   # conversions
   
@@ -127,7 +129,12 @@ FuzzyImputation <- function(dataSet,method="dimp",trapezoidal=TRUE,checkFuzzy=FA
   
   repeat {
     
-    cat("Iteration: ", i, "\n")
+    if(verbose)
+    {
+      cat("Iteration: ", i, "\n")
+    }
+    
+    
     
     i <- i+1
     

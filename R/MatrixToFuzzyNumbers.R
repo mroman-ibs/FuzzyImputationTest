@@ -54,7 +54,7 @@ MatrixToFuzzyNumbers <- function(fuzzyMatrix, varNames=NA,...)
 {
   if(nrow(fuzzyMatrix)==0)
   {
-    print("Not enough rows!")
+    stop("Not enough rows in the parameter fuzzyMatrix!")
     
   }
   

@@ -1,12 +1,12 @@
 Package: FuzzyImputationTest
 Type: Package
 Title: Imputation Procedures and Quality Tests for Fuzzy Data
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
     person("Maciej", "Romaniuk", email = "mroman@ibspan.waw.pl",
     role = c("cre","aut"),comment = c(ORCID = "0000-0001-9649-396X"))
     )
-Description: Imputation.
+Description: Special procedures for the imputation of missing fuzzy numbers are still underdeveloped. The goal of the package is to provide the new imputation method (called DIMP) and covert some classical ones (missForest,miceRanger,knn) for use with fuzzy datasets. Additionally, specially tailored benchmarking tests are provided to check and compare these imputation procedures with fuzzy datasets.
 License: GPL-3
 NeedsCompilation: yes
 Imports: stats, methods, FuzzySimRes, FuzzyNumbers, missForest, miceRanger, VIM
