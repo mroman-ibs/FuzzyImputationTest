@@ -68,11 +68,35 @@
 FuzzifyMatrix <- function(crispMatrix,coreFactor=0.2,supportFactor=0.2,trapezoidal=TRUE,varNames=colnames(crispMatrix),...)
 {
   
+  # checking parameters
+  
+  if(!(is.data.frame(crispMatrix) | is.matrix(crispMatrix)))
+  {
+    stop("Parameter crispMatrix should be a data frame or a matrix!")
+  }
+  
+  if ((length(coreFactor) !=1) || (!is.numeric(coreFactor)) || (coreFactor <=0))
+  {
+    stop("Parameter coreFactor should be a single positive real value!")
+  }
+  
+  if ((length(supportFactor) !=1) || (!is.numeric(supportFactor)) || (supportFactor <=0))
+  {
+    stop("Parameter supportFactor should be a single positive real value!")
+  }
+    
+  if ((length(trapezoidal)!=1 || (!is.logical(trapezoidal))))
+  {
+    stop("Parameter trapezoidal should be a single logical value!")
+  }
+  
   if(is.data.frame(crispMatrix))
   {
     crispMatrix <- data.matrix(crispMatrix)
     
   } 
+  
+
   
   varNumb <- ncol(crispMatrix)
   
@@ -81,6 +105,23 @@ FuzzifyMatrix <- function(crispMatrix,coreFactor=0.2,supportFactor=0.2,trapezoid
   # prepare matrix
   
   newNames <- c()
+  
+  # add names
+  
+  if(any(is.null(varNames)))
+  {
+    varNames <- paste("V", 1:varNumb, sep="")
+    
+    # print(varNames)
+  }
+  
+  
+  if(any(is.null(colnames(crispMatrix))))
+  {
+    colnames(crispMatrix) <- paste("V", 1:varNumb, sep="")
+    
+    # print(varNames)
+  }
   
   if(trapezoidal)
   {

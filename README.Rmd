@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 The goal of FuzzyImputationTest is to impute (i.e., replace missing values given by NAs) dataset that
 consists of triangular or trapezoidal fuzzy numbers, and check quality of such an imputation.
 To impute fuzzy values, various imputation methods - both general (like miceRanger, missingForest, knn),
-and specific ones (DIMP) - can be used.
+and specific ones (d-imputation method, abbreviated as DIMP, see [@rb23]) - can be used.
 To check the quality of the imputation process, the dataset without missing values can be specified, and then
 it is tested with the whole set of procedures.
 These procedures are related to calculation of various sample statistics like the mean, standard deviation, and some special distance 

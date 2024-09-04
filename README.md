@@ -10,7 +10,8 @@ The goal of FuzzyImputationTest is to impute (i.e., replace missing
 values given by NAs) dataset that consists of triangular or trapezoidal
 fuzzy numbers, and check quality of such an imputation. To impute fuzzy
 values, various imputation methods - both general (like miceRanger,
-missingForest, knn), and specific ones (DIMP) - can be used. To check
+missingForest, knn), and specific ones (d-imputation method, abbreviated
+as DIMP, see (Romaniuk and Grzegorzewski 2023)) - can be used. To check
 the quality of the imputation process, the dataset without missing
 values can be specified, and then it is tested with the whole set of
 procedures. These procedures are related to calculation of various
@@ -92,6 +93,13 @@ Journal of Applied Mathematics and Computer Science* 34 (2): 277–89.
 Grzegorzewski, Przemyslaw, and Maciej Romaniuk. 2022. “Bootstrap Methods
 for Epistemic Fuzzy Data.” *International Journal of Applied Mathematics
 and Computer Science* 32 (2): 285–97.
+
+</div>
+
+<div id="ref-rb23" class="csl-entry">
+
+Romaniuk, M., and P. Grzegorzewski. 2023. “Fuzzy Data Imputation with
+DIMP and FGAIN.” RB/23/2023. Systems Research Institute, PAS.
 
 </div>
 

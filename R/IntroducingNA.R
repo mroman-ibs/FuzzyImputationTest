@@ -47,6 +47,19 @@
 IntroducingNA <- function(dataMatrix,percentage=0.05,...)
 {
   
+  # checking parameters
+  
+  if(!(is.data.frame(dataMatrix) | is.matrix(dataMatrix)))
+  {
+    stop("Parameter dataMatrix should be a data frame or a matrix!")
+  }
+  
+  
+  if ((length(percentage) !=1) || (!is.numeric(percentage)) || (percentage <=0))
+  {
+    stop("Parameter percentage should be a single positive real value!")
+  }
+  
   # conversions
   
   if(is.data.frame(dataMatrix))
