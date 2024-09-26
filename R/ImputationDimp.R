@@ -77,6 +77,18 @@
 ImputationDimp <- function(dataToImpute,trapezoidal=TRUE,...)
 {
   
+  # checking parameters
+  
+  if(!(is.data.frame(dataToImpute) | is.matrix(dataToImpute) | is.list(dataToImpute)))
+  {
+    stop("Parameter dataToImpute should be a data frame, a matrix or a list!")
+  }
+  
+  if ((length(trapezoidal)!=1 || (is.na(trapezoidal)) || (!is.logical(trapezoidal))))
+  {
+    stop("Parameter trapezoidal should be a single logical value!")
+  }
+  
   # conversions
   
   if(is.data.frame(dataToImpute))
@@ -92,6 +104,24 @@ ImputationDimp <- function(dataToImpute,trapezoidal=TRUE,...)
     dataToImpute <- FuzzyNumbersToMatrix(dataToImpute,trapezoidal = trapezoidal,...)
     
   } 
+  
+  
+  if (!is.numeric(dataToImpute))
+  {
+    stop("Parameter dataToImpute should have numerical values!")
+  }
+  
+  
+  if (!((ncol(dataToImpute) %% 4) == 0) & trapezoidal)
+  {
+    stop("For trapezoidal fuzzy numbers, the parameter dataToImpute should have a multiple of 4 columns!")
+  }
+  
+  
+  if (!((ncol(dataToImpute) %% 3) == 0) & !trapezoidal)
+  {
+    stop("For triangular fuzzy numbers, the parameter dataToImpute should have a multiple of 3 columns!")
+  }
   
   # number of all variables
   

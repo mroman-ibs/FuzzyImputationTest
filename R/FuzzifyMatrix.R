@@ -96,6 +96,13 @@ FuzzifyMatrix <- function(crispMatrix,coreFactor=0.2,supportFactor=0.2,trapezoid
     
   } 
   
+  # checking parameters
+  
+  if (!is.numeric(crispMatrix))
+  {
+    stop("Parameter crispMatrix should be a numerical matrix or dataframe!")
+  }
+  
 
   
   varNumb <- ncol(crispMatrix)

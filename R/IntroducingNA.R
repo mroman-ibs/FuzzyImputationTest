@@ -81,6 +81,14 @@ IntroducingNA <- function(dataMatrix,percentage=0.05,...)
     
   }
   
+  
+  # checking parameters
+  
+  if (!is.numeric(dataMatrix))
+  {
+    stop("Parameter dataMatrix should be a numerical matrix or dataframe!")
+  }
+  
   variableNumber <- ncol(dataMatrix)
   
   obsNumber <- nrow(dataMatrix)

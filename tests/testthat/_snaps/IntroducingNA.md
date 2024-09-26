@@ -32,7 +32,7 @@
 
     Code
       set.seed(123456)
-      testDataFrame1 <- data.frame(a = c(1, -1, 0, -1, 7), b = c(2, 3, 4, -3, 11), b = c(
+      testDataFrame1 <- data.frame(a = c(1, -1, 0, -1, 7), b = c(2, 3, 4, -3, 11), c = c(
         3, 5, 7, 5, 22), d = c(4, 9, 1, 0, 15))
       IntroducingNA(dataMatrix = testMatrix1, percentage = 0.2)
     Output

@@ -4,10 +4,10 @@
 #' `RemoveNotFuzzy` removes all values that are not proper fuzzy numbers and restores the previous ones.
 #'
 #' @details
-#' The procedure checks all the values in the given matrix (or data frmame, or list) specified by \code{imputedData}
+#' The procedure checks all the values in the given matrix (or data frame) specified by \code{imputedData}
 #' and if some of them are not proper fuzzy numbers (e.g., their cores are outside the supports), they are removed.
-#' Instead of these erroneous values, the previous ones from the input matrix \code{trueData} are restored.
-#' These matrices (or data frames, or lists) should consist of fuzzy numbers (triangular fuzzy numbers if \code{trapezoidal=FALSE} is set,
+#' Instead of these erroneous values, the previous ones from the input matrix (a data frame, or a list) \code{trueData} are restored.
+#' These matrices (or data frames) should consist of fuzzy numbers (triangular fuzzy numbers if \code{trapezoidal=FALSE} is set,
 #'  or trapezoidal ones if the default \code{trapezoidal=TRUE} is used).
 #' The output is given as a matrix where each row is related to fuzzy numbers (with 3 values for the triangular fuzzy numbers,
 #' or 4 values in the case of trapezoidal ones) for the consecutive variables.
@@ -21,10 +21,10 @@
 #'
 #'
 #'
-#' @param trueData Name of the input matrix (data frame or list) that is used to restore erroneous fuzzy numbers.
+#' @param trueData Name of the input matrix (data frame(or data frame)) that is used to restore erroneous fuzzy numbers.
 #'
 #'
-#' @param imputedData Name of the input matrix (data frame or list) with fuzzy numbers to check their correctness.
+#' @param imputedData Name of the input matrix (data frame) with fuzzy numbers to check their correctness.
 #' 
 #' @param trapezoidal Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.
 #' 
@@ -56,6 +56,24 @@
 
 RemoveNotFuzzy <- function(trueData,imputedData,trapezoidal=TRUE,...)
 {
+  # checking parameters
+  
+  if(!(is.data.frame(trueData) | is.matrix(trueData) | is.list(trueData)))
+  {
+    stop("Parameter trueData should be a data frame, a matrix or a list!")
+  }
+  
+  
+  if(!(is.data.frame(imputedData) | is.matrix(imputedData) ))
+  {
+    stop("Parameter imputedData should be a data frame or a matrix!")
+  }
+  
+  if ((length(trapezoidal)!=1 || (is.na(trapezoidal)) || (!is.logical(trapezoidal))))
+  {
+    stop("Parameter trapezoidal should be a single logical value!")
+  }
+  
   # conversions
   
   if(is.data.frame(trueData))
@@ -87,8 +105,42 @@ RemoveNotFuzzy <- function(trueData,imputedData,trapezoidal=TRUE,...)
     
   } 
   
+  # checking parameters
+  
+  if (!is.numeric(trueData))
+  {
+    stop("Parameter trueData should have numerical values!")
+  }
   
   
+  if (!is.numeric(imputedData))
+  {
+    stop("Parameter imputedData should have numerical values!")
+  }
+  
+  
+  if (!((ncol(trueData) %% 4) == 0) & trapezoidal)
+  {
+    stop("For trapezoidal fuzzy numbers, the parameter trueData should have a multiple of 4 columns!")
+  }
+  
+  
+  if (!((ncol(imputedData) %% 4) == 0) & trapezoidal)
+  {
+    stop("For trapezoidal fuzzy numbers, the parameter imputedData should have a multiple of 4 columns!")
+  }
+  
+  
+  if (!((ncol(trueData) %% 3) == 0) & !trapezoidal)
+  {
+    stop("For triangular fuzzy numbers, the parameter trueData should have a multiple of 3 columns!")
+  }
+  
+  
+  if (!((ncol(imputedData) %% 3) == 0) & !trapezoidal)
+  {
+    stop("For triangular fuzzy numbers, the parameter imputedData should have a multiple of 3 columns!")
+  }
   
   # number of all variables
   

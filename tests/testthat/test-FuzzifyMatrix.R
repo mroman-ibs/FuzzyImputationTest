@@ -81,6 +81,12 @@ test_that("Function reports errors", {
                           -1,-3,5,0,
                           7,11,22,15),nrow = 5,ncol = 4,byrow = TRUE)
   
+  testMatrixBad <- matrix(c(1,2,3,"c",
+                          -1,3,5,9,
+                          0,4,7,1,
+                          -1,-3,5,0,
+                          7,11,22,15),nrow = 5,ncol = 4,byrow = TRUE)
+  
   # tests
   
   expect_error(FuzzifyMatrix(crispMatrix="c",coreFactor=0.1,supportFactor=0.2,trapezoidal=TRUE),
@@ -91,9 +97,13 @@ test_that("Function reports errors", {
                
                "Parameter crispMatrix should be a data frame or a matrix!")
   
-  expect_error(FuzzifyMatrix(crispMatrix=c(1,2,3),coreFactor=0.1,supportFactor=0.2,trapezoidal=TRUE),
+  expect_error(FuzzifyMatrix(crispMatrix="c",coreFactor=0.1,supportFactor=0.2,trapezoidal=TRUE),
                
                "Parameter crispMatrix should be a data frame or a matrix!")
+  
+  expect_error(FuzzifyMatrix(crispMatrix=testMatrixBad,coreFactor=0.1,supportFactor=0.2,trapezoidal=TRUE),
+               
+               "Parameter crispMatrix should be a numerical matrix or dataframe!")
   
   expect_error(FuzzifyMatrix(crispMatrix=testMatrix1,coreFactor=-1,supportFactor=0.2,trapezoidal=TRUE),
                

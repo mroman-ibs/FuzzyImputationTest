@@ -7,9 +7,9 @@
 RemoveNotFuzzy(trueData, imputedData, trapezoidal = TRUE, ...)
 }
 \arguments{
-\item{trueData}{Name of the input matrix (data frame or list) that is used to restore erroneous fuzzy numbers.}
+\item{trueData}{Name of the input matrix (data frame(or data frame)) that is used to restore erroneous fuzzy numbers.}
 
-\item{imputedData}{Name of the input matrix (data frame or list) with fuzzy numbers to check their correctness.}
+\item{imputedData}{Name of the input matrix (data frame) with fuzzy numbers to check their correctness.}
 
 \item{trapezoidal}{Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.}
 
@@ -22,10 +22,10 @@ The output is given as a matrix.
 `RemoveNotFuzzy` removes all values that are not proper fuzzy numbers and restores the previous ones.
 }
 \details{
-The procedure checks all the values in the given matrix (or data frmame, or list) specified by \code{imputedData}
+The procedure checks all the values in the given matrix (or data frame) specified by \code{imputedData}
 and if some of them are not proper fuzzy numbers (e.g., their cores are outside the supports), they are removed.
-Instead of these erroneous values, the previous ones from the input matrix \code{trueData} are restored.
-These matrices (or data frames, or lists) should consist of fuzzy numbers (triangular fuzzy numbers if \code{trapezoidal=FALSE} is set,
+Instead of these erroneous values, the previous ones from the input matrix (a data frame, or a list) \code{trueData} are restored.
+These matrices (or data frames) should consist of fuzzy numbers (triangular fuzzy numbers if \code{trapezoidal=FALSE} is set,
  or trapezoidal ones if the default \code{trapezoidal=TRUE} is used).
 The output is given as a matrix where each row is related to fuzzy numbers (with 3 values for the triangular fuzzy numbers,
 or 4 values in the case of trapezoidal ones) for the consecutive variables.
