@@ -22,7 +22,7 @@
 #' @return
 #' The output is given as a list of the matrices: \code{trueValues} - the true, input values (the same as \code{trueData}),
 #' \code{mask} - the masked (NAs) values (the same as \code{imputedMask}),
-#' \code{nonFNNumbers} - the vector with the numbers of non-FNs samples for each variable,
+#' \code{nonFNNumbers} - the vector with the numbers of non-FNs samples for each variable (with the overall mean),
 #' \code{errorMatrix} -- the output from the function \code{ErrorMatrix},
 #' \code{statisticalMeasures} -- the output from the function \code{StatisticalMeasures}, 
 #'  \code{statisticalTests} -- the output from the function \code{ApplyStatisticalTests}, 

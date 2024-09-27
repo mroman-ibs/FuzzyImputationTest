@@ -16,7 +16,7 @@ StatisticalMeasures(trueData, imputedData, imputedMask, ...)
 \item{...}{Additional parameters passed to other functions.}
 }
 \value{
-The output is given as a matrix.
+The output is given as a matrix with columns related to all columns of the input dataset plus the overall mean.
 }
 \description{
 \code{StatisticalMeasures} calculates various statistical measures between the real and imputed data.

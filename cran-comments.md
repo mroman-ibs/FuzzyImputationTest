@@ -1,3 +1,10 @@
+I have prepared the new version (0.3.0) of my package. 
+
+* Main changes:
+- Added function MethodsComparison.
+- Added tests and checking of the parameters for some functions.
+
+
 I have prepared the new version (0.2.0) of my package. 
 
 * Main changes:

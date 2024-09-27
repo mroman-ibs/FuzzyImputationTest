@@ -30,7 +30,7 @@ ApplyStatisticalTests(
 \item{...}{Additional parameters passed to other functions.}
 }
 \value{
-The output is given as a matrix (the rows are related to various types of the test and subsamples, the columns - to the variables).
+The output is given as a matrix (the rows are related to various types of the test and subsamples, the columns - to the variables plus the overall mean).
 }
 \description{
 \code{ApplyStatisticalTests} applies the epistemic goodness-of-fit test for

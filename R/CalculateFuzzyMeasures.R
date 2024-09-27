@@ -17,7 +17,7 @@
 #' 
 #'
 #' @return
-#' The output is given as a matrix (the rows are related to various types of the errors, the columns - to the variables).
+#' The output is given as a matrix (the rows are related to various types of the errors, the columns - to the variables and the overall mean).
 #'
 #'
 #'
@@ -137,11 +137,11 @@ CalculateFuzzyMeasures <- function(trueData,imputedData,imputedMask,trapezoidal=
   
   # output matrix
   
-  output <- matrix(NA,ncol = varNumber, nrow = length(distanceNames))
+  output <- matrix(NA,ncol = varNumber+1, nrow = length(distanceNames))
   
   rownames(output) <- distanceNames
   
-  colnames(output) <- noquote(paste("V", 1:varNumber, sep=""))
+  colnames(output) <- c(noquote(paste("V", 1:varNumber, sep="")),"mean")
   
   
   
@@ -169,6 +169,19 @@ CalculateFuzzyMeasures <- function(trueData,imputedData,imputedMask,trapezoidal=
     output[,i] <- outputSingleVar
     
   }
+  
+  if(varNumber==1)
+  {
+    
+    output[,"mean"] <- output[,1]
+    
+  } else {
+    
+    output[,"mean"] <- apply(output[,c(1:varNumber)],MARGIN=1,FUN=mean)
+    
+  }
+  
+  
   
   return(output)
   

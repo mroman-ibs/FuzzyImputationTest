@@ -31,6 +31,8 @@ The following procedures are available in the library:
 - Testing procedures:
   - *ImputationTests* - The main benchmark function to check the quality
     of the imputed fuzzy values.
+  - *MethodsComparison* - The benchmark function for the built-in
+    imputation methods with many repetitions.
   - *ErrorMatrix* - Calculation of the various errors between two
     datasets - the true and the imputed one.
   - *StatisticalMeasures* - Calculation of the various statistical

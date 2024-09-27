@@ -10,13 +10,13 @@ NumberOfNonFNs <- function(inputMatrix,trapezoidal)
   
   # cat("varNumber: ", varNumber, "\n")
   
-  # output matrix
+  # output vector
   
-  output <- rep(NA,times=varNumber)
+  output <- rep(NA,times=varNumber+1)
   
-  names(output) <- noquote(paste("V", 1:varNumber, sep=""))
+  names(output) <- c(noquote(paste("V", 1:varNumber, sep="")),"mean")
   
-  
+  # cat("output: ", output, "\n")
   
   # for loop for all variables
   
@@ -44,6 +44,8 @@ NumberOfNonFNs <- function(inputMatrix,trapezoidal)
     output[i] <- outputSingleVar
     
   }
+  
+  output["mean"] <- mean(output[c(1:varNumber)])
   
   return(output)
   

@@ -32,7 +32,7 @@
 #' 
 #'
 #' @return
-#' The output is given as a matrix.
+#' The output is given as a matrix with columns related to all columns of the input dataset plus the overall mean.
 #'
 #'
 #'
@@ -189,6 +189,14 @@ StatisticalMeasures <- function(trueData,imputedData,imputedMask,...)
   output["AbsDiffTrueImpSD",] <- abs(output["TrueSD",]-output["ImpSD",])
   
   output["AbsDiffGenImpSD",] <- abs(output["GenSD",]-output["GenImpSD",])
+  
+  # adding means
+  
+  outputMean <- apply(output, MARGIN=1,FUN=mean)
+  
+  output <- cbind(output,outputMean)
+  
+  colnames(output)[variableNumber+1] <- "mean"
   
   
   return(output)

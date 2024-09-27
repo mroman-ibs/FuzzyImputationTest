@@ -25,7 +25,7 @@
 #' 
 #'
 #' @return
-#' The output is given as a matrix (the rows are related to various types of the test and subsamples, the columns - to the variables).
+#' The output is given as a matrix (the rows are related to various types of the test and subsamples, the columns - to the variables plus the overall mean).
 #'
 #'
 #'
@@ -133,11 +133,11 @@ ApplyStatisticalTests <- function(trueData,imputedData,imputedMask,trapezoidal=T
   
   # output matrix
   
-  output <- matrix(NA,ncol = varNumber, nrow = length(setsNames)*length(testsNames))
+  output <- matrix(NA,ncol = varNumber+1, nrow = length(setsNames)*length(testsNames))
   
   rownames(output) <- noquote(paste(rep(setsNames,each=3),testsNames,sep="+"))
   
-  colnames(output) <- noquote(paste("V", 1:varNumber, sep=""))
+  colnames(output) <- c(noquote(paste("V", 1:varNumber, sep="")),"mean")
   
   
   
@@ -165,6 +165,17 @@ ApplyStatisticalTests <- function(trueData,imputedData,imputedMask,trapezoidal=T
     # input to the output matrix
     
     output[,i] <- outputSingleVar
+    
+  }
+  
+  if(varNumber==1)
+  {
+    
+    output[,"mean"] <- output[,1]
+    
+  } else {
+    
+    output[,"mean"] <- apply(output[,c(1:varNumber)],MARGIN=1,FUN=mean)
     
   }
   

@@ -24,7 +24,7 @@ CalculateFuzzyMeasures(
 \item{...}{Additional parameters passed to other functions.}
 }
 \value{
-The output is given as a matrix (the rows are related to various types of the errors, the columns - to the variables).
+The output is given as a matrix (the rows are related to various types of the errors, the columns - to the variables and the overall mean).
 }
 \description{
 `CalculateFuzzyMeasures` calculates the various types of fuzzy measures between two datasets -- the true and the imputed one.
