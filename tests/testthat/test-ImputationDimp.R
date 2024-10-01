@@ -73,3 +73,55 @@ test_that("Function returns correct values", {
 })
 
 
+
+test_that("Function reports errors", {
+  
+  # starting values
+  
+  set.seed(123456)
+  
+  testMatrix1 <- matrix(c(1,2,3,4,
+                          -1,3,5,9,
+                          0,4,7,1,
+                          -1,-3,5,0,
+                          7,11,22,15),nrow = 5,ncol = 4,byrow = TRUE)
+  
+  testMatrixBad <- matrix(c(1,2,3,"c",
+                            -1,3,5,9,
+                            0,4,7,1,
+                            -1,-3,5,0,
+                            7,11,22,15),nrow = 5,ncol = 4,byrow = TRUE)
+  
+  testMatrix2 <- matrix(c(1,2,3,
+                          -1,3,5,
+                          0,4,7,
+                          -1,-3,5,
+                          7,11,22),nrow = 5,ncol = 3,byrow = TRUE)
+  
+  # tests
+  
+  expect_error(ImputationDimp(dataToImpute="c"),
+               
+               "Parameter dataToImpute should be a data frame, a matrix or a list!")
+  
+  
+  expect_error(ImputationDimp(dataToImpute=testMatrixBad),
+               
+               "Parameter dataToImpute should have numerical values!")
+  
+  
+  expect_error(ImputationDimp(dataToImpute=testMatrix1,trapezoidal = FALSE),
+               
+               "For triangular fuzzy numbers, the parameter dataToImpute should have a multiple of 3 columns!")
+  
+  
+  expect_error(ImputationDimp(dataToImpute=testMatrix2,trapezoidal = TRUE),
+               
+               "For trapezoidal fuzzy numbers, the parameter dataToImpute should have a multiple of 4 columns!")
+  
+  
+  
+  
+  
+})
+

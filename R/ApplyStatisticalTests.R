@@ -101,6 +101,29 @@
 
 ApplyStatisticalTests <- function(trueData,imputedData,imputedMask,trapezoidal=TRUE,cutsNumber=100,K=50,...)
 {
+  # checking parameters
+  
+  if(!(is.data.frame(trueData) | is.matrix(trueData)))
+  {
+    stop("Parameter trueData should be a data frame or a matrix!")
+  }
+  
+  if(!(is.data.frame(imputedData) | is.matrix(imputedData)))
+  {
+    stop("Parameter imputedData should be a data frame or a matrix!")
+  }
+  
+  if(!(is.data.frame(imputedMask) | is.matrix(imputedMask)))
+  {
+    stop("Parameter imputedMask should be a data frame or a matrix!")
+  }
+  
+  if ((length(trapezoidal)!=1 || (is.na(trapezoidal)) || (!is.logical(trapezoidal))))
+  {
+    stop("Parameter trapezoidal should be a single logical value!")
+  }
+  
+  
   # conversions
   
   if(is.data.frame(trueData))

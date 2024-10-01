@@ -1,3 +1,11 @@
+I have prepared the new version (0.3.1) of my package. 
+
+* Main changes:
+- Added vectors with constant names used in the package.
+- Added tests and checking of the parameters for some functions.
+
+
+
 I have prepared the new version (0.3.0) of my package. 
 
 * Main changes:
