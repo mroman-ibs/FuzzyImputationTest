@@ -202,11 +202,11 @@ MethodsComparison <- function(trueData,iterations=100,percentage=0.05,trapezoida
   
   outputQualityDimp <- mapply("/", outputQualityDimp,iterations)
   
-  outputQualityMF <- mapply("/", outputQualityDimp,iterations)
+  outputQualityMF <- mapply("/", outputQualityMF,iterations)
   
-  outputQualityMiceR <- mapply("/", outputQualityDimp,iterations)
+  outputQualityMiceR <- mapply("/", outputQualityMiceR,iterations)
   
-  outputQualityKnn <- mapply("/", outputQualityDimp,iterations)
+  outputQualityKnn <- mapply("/", outputQualityKnn,iterations)
   
   
   

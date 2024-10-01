@@ -87,12 +87,61 @@ install_github("mroman-ibs/FuzzyImputationTest")
 
 ## Example
 
-Please check the help files.
 
-```{r}
+```{r, eval=FALSE}
 
-  
+# seed PRNG
+
+set.seed(1234)
+
+# load the necessary library
+ 
+library(FuzzySimRes)
+ 
+# generate sample of trapezoidal fuzzy numbers with FuzzySimRes library
+
+list1<-SimulateSample(20,originalPD="rnorm",parOriginalPD=list(mean=0,sd=1),
+ incrCorePD="rexp", parIncrCorePD=list(rate=2),
+ suppLeftPD="runif",parSuppLeftPD=list(min=0,max=0.6),
+ suppRightPD="runif", parSuppRightPD=list(min=0,max=0.6),
+ type="trapezoidal")
+ 
+# convert fuzzy data into a matrix
+ 
+matrix1 <- FuzzyNumbersToMatrix(list1$value)
+ 
+# check starting values
+ 
+head(matrix1)
+
+# add some NAs to the matrix
+ 
+matrix1NA <- IntroducingNA(matrix1,percentage = 0.1)
+ 
+head(matrix1NA)
+ 
+# impute missing values with the DIMP method
+ 
+set.seed(12345)
+ 
+FuzzyImputation(matrix1NA)
+ 
+# impute missing values with the miceRanger method
+ 
+set.seed(12345)
+ 
+FuzzyImputation(matrix1NA,method = "miceRanger") 
+
+# compare imputation methods
+
+set.seed(123456)
+
+MethodsComparison(matrix1,iterations=10,matrix1Mask,trapezoidal=TRUE)
+
 
 ```
+
+For additional examples check the help files please.
+
 
 ## References
