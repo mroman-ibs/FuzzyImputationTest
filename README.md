@@ -69,6 +69,8 @@ install_github("mroman-ibs/FuzzyImputationTest")
 
 ## Example
 
+Please check the help files.
+
 ## References
 
 <div id="refs" class="references csl-bib-body hanging-indent"
