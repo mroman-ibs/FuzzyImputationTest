@@ -1,10 +1,10 @@
-I have prepared the new version (0.3.2) of my package. 
+I have prepared the new version (0.3.3) of my package. 
 
 * Main changes:
 - Added vectors with constant names used in the package.
 - Added tests and checking of the parameters for some functions.
 - Corrected output in the function MethodsComparison.
-
+- Corrected errors related to trapezoidal parameter
 
 
 I have prepared the new version (0.3.0) of my package. 
