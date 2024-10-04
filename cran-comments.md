@@ -1,4 +1,4 @@
-I have prepared the new version (0.3.1) of my package. 
+I have prepared the new version (0.3.2) of my package. 
 
 * Main changes:
 - Added vectors with constant names used in the package.

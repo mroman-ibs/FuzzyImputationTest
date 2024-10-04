@@ -70,7 +70,7 @@
 #' 
 #' \dontrun{
 #' 
-#' MethodsComparison(matrix1,iterations=10,matrix1Mask,trapezoidal=TRUE)
+#' MethodsComparison(matrix1,iterations=10,trapezoidal=TRUE)
 #'
 #' }
 #'
@@ -96,7 +96,7 @@ MethodsComparison <- function(trueData,iterations=100,percentage=0.05,trapezoida
   {
     # conversion to matrix
     
-    trueData <- FuzzyNumbersToMatrix(trueData,...)
+    trueData <- FuzzyNumbersToMatrix(fuzzyList=trueData,trapezoidal=trapezoidal,...)
     
   } 
   

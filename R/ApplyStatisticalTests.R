@@ -144,6 +144,65 @@ ApplyStatisticalTests <- function(trueData,imputedData,imputedMask,trapezoidal=T
     
   } 
   
+  # checking parameters
+  
+  if (!is.numeric(trueData))
+  {
+    stop("Parameter trueData should be a numerical matrix or dataframe!")
+  }
+  
+  
+  if (!is.numeric(imputedData))
+  {
+    stop("Parameter imputedData should be a numerical matrix or dataframe!")
+  }
+  
+  if (!is.logical(imputedMask))
+  {
+    stop("Parameter imputedMask should be a logical matrix or dataframe!")
+  }
+  
+  if(!(ncol(trueData) == ncol(imputedData)) & !(ncol(imputedData) == ncol(imputedMask)))
+  {
+    stop("The parameters trueData, imputedData, imputedMask should have the same number of columns!")
+  }
+  
+  if (!((ncol(trueData) %% 4) == 0) & trapezoidal)
+  {
+    stop("For trapezoidal fuzzy numbers, the parameter trueData should have a multiple of 4 columns!")
+  }
+  
+  
+  if (!((ncol(trueData) %% 3) == 0) & !trapezoidal)
+  {
+    stop("For triangular fuzzy numbers, the parameter trueData should have a multiple of 3 columns!")
+  }
+  
+  
+  if (!((ncol(imputedData) %% 4) == 0) & trapezoidal)
+  {
+    stop("For trapezoidal fuzzy numbers, the parameter imputedData should have a multiple of 4 columns!")
+  }
+  
+  
+  if (!((ncol(imputedData) %% 3) == 0) & !trapezoidal)
+  {
+    stop("For triangular fuzzy numbers, the parameter imputedData should have a multiple of 3 columns!")
+  }
+  
+  
+  if (!((ncol(imputedMask) %% 4) == 0) & trapezoidal)
+  {
+    stop("For trapezoidal fuzzy numbers, the parameter imputedMask should have a multiple of 4 columns!")
+  }
+  
+  
+  if (!((ncol(imputedMask) %% 3) == 0) & !trapezoidal)
+  {
+    stop("For triangular fuzzy numbers, the parameter imputedMask should have a multiple of 3 columns!")
+  }
+  
+  
   
   
   # number of all variables

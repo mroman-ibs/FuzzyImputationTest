@@ -78,7 +78,7 @@ head(matrix1)
 
 \dontrun{
 
-MethodsComparison(matrix1,iterations=10,matrix1Mask,trapezoidal=TRUE)
+MethodsComparison(matrix1,iterations=10,trapezoidal=TRUE)
 
 }
 

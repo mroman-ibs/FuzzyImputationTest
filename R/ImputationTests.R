@@ -152,7 +152,7 @@ ImputationTests <- function(trueData,imputedData,imputedMask,trapezoidal=TRUE,
 
   # apply tests
   
-  statisticalTests <- ApplyStatisticalTests(trueData,imputedData,imputedMask,
+  statisticalTests <- ApplyStatisticalTests(trueData,imputedData,imputedMask,trapezoidal=trapezoidal,
                                             cutsNumber=cutsNumber,K=K,...)
   
   # calculate distances
