@@ -49,9 +49,9 @@ IntroducingNA <- function(dataMatrix,percentage=0.05,...)
   
   # checking parameters
   
-  if(!(is.data.frame(dataMatrix) | is.matrix(dataMatrix)))
+  if(!(is.data.frame(dataMatrix) | is.matrix(dataMatrix) | is.list(dataMatrix)))
   {
-    stop("Parameter dataMatrix should be a data frame or a matrix!")
+    stop("Parameter dataMatrix should be a data frame or a matrix or a list!")
   }
   
   

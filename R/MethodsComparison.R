@@ -124,13 +124,13 @@ MethodsComparison <- function(trueData,iterations=100,percentage=0.05,trapezoida
     
     # now imputation methods
     
-    imputedDataDimp <- FuzzyImputation(dataSet = dataWithNA,method = "dimp", trapezoidal = trapezoidal,verbose = FALSE,...)
+    imputedDataDimp <- FuzzyImputation(dataToImpute = dataWithNA,method = "dimp", trapezoidal = trapezoidal,verbose = FALSE,...)
     
-    imputedDataMF <- FuzzyImputation(dataSet = dataWithNA,method = "missForest", trapezoidal = trapezoidal,verbose = FALSE,...)
+    imputedDataMF <- FuzzyImputation(dataToImpute = dataWithNA,method = "missForest", trapezoidal = trapezoidal,verbose = FALSE,...)
     
-    imputedDataMiceR <- FuzzyImputation(dataSet = dataWithNA,method = "miceRanger", trapezoidal = trapezoidal,verbose = FALSE,...)
+    imputedDataMiceR <- FuzzyImputation(dataToImpute = dataWithNA,method = "miceRanger", trapezoidal = trapezoidal,verbose = FALSE,...)
     
-    imputedDataKnn <- FuzzyImputation(dataSet = dataWithNA,method = "knn", trapezoidal = trapezoidal,verbose = FALSE,...)
+    imputedDataKnn <- FuzzyImputation(dataToImpute = dataWithNA,method = "knn", trapezoidal = trapezoidal,verbose = FALSE,...)
     
     # check quality
     

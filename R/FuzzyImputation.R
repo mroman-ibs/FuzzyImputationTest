@@ -30,7 +30,7 @@
 #'
 #'
 #'
-#' @param dataSet Name of the input matrix (data frame or list) of fuzzy numbers with some NAs.
+#' @param dataToImpute Name of the input matrix (data frame or list) of fuzzy numbers with some NAs.
 #' 
 #' @param method Name of the imputation method (possible values: \code{dimp,missForest,miceRanger,knn}).
 #'
@@ -98,27 +98,69 @@
 
 # main method to impute values
 
-FuzzyImputation <- function(dataSet,method="dimp",trapezoidal=TRUE,checkFuzzy=FALSE,verbose=TRUE,...)
+FuzzyImputation <- function(dataToImpute,method="dimp",trapezoidal=TRUE,checkFuzzy=FALSE,verbose=TRUE,...)
 {
+  # checking parameters
+  
+  if(!(is.data.frame(dataToImpute) | is.matrix(dataToImpute) | is.list(dataToImpute)))
+  {
+    stop("Parameter dataToImpute should be a data frame or a matrix or a list!")
+  }
+  
+  if(!(method %in% methodNames))
+  {
+    stop("Parameter method should be a proper name of the imputation method - check the values of methodNames")
+  }
+  
+  
+  if ((length(trapezoidal)!=1 || (is.na(trapezoidal)) || (!is.logical(trapezoidal))))
+  {
+    stop("Parameter trapezoidal should be a single logical value!")
+  }
+  
+  if ((length(checkFuzzy)!=1 || (is.na(checkFuzzy)) || (!is.logical(checkFuzzy))))
+  {
+    stop("Parameter checkFuzzy should be a single logical value!")
+  }
+  
+  if ((length(verbose)!=1 || (is.na(verbose)) || (!is.logical(verbose))))
+  {
+    stop("Parameter verbose should be a single logical value!")
+  }
+  
   # conversions
   
-  if(is.data.frame(dataSet))
+  if(is.data.frame(dataToImpute))
   {
-    fuzzyMatrix <- data.matrix(dataSet)
+    dataToImpute <- data.matrix(dataToImpute)
     
   } 
   
-  if(is.list(dataSet) && !is.data.frame(dataSet))
+  if(is.list(dataToImpute) && !is.data.frame(dataToImpute))
   {
     # conversion to matrix
     
-    fuzzyMatrix <- FuzzyNumbersToMatrix(dataSet,trapezoidal = trapezoidal,...)
+    dataToImpute <- FuzzyNumbersToMatrix(dataToImpute,trapezoidal = trapezoidal,...)
     
-  } else {
+  } 
   
-    
-    fuzzyMatrix <- dataSet
-    
+  # checking parameters
+  
+  if (!is.numeric(dataToImpute))
+  {
+    stop("Parameter dataToImpute should have numerical values!")
+  }
+  
+  
+  if (!((ncol(dataToImpute) %% 4) == 0) & trapezoidal)
+  {
+    stop("For trapezoidal fuzzy numbers, the parameter dataToImpute should have a multiple of 4 columns!")
+  }
+  
+  
+  if (!((ncol(dataToImpute) %% 3) == 0) & !trapezoidal)
+  {
+    stop("For triangular fuzzy numbers, the parameter dataToImpute should have a multiple of 3 columns!")
   }
   
   # condition to stop
@@ -142,7 +184,7 @@ FuzzyImputation <- function(dataSet,method="dimp",trapezoidal=TRUE,checkFuzzy=FA
     
     if(method=="dimp") {
       
-      outputMatrix <- ImputationDimp(fuzzyMatrix,trapezoidal = trapezoidal,...)
+      outputMatrix <- ImputationDimp(dataToImpute,trapezoidal = trapezoidal,...)
       
     }
     
@@ -152,7 +194,7 @@ FuzzyImputation <- function(dataSet,method="dimp",trapezoidal=TRUE,checkFuzzy=FA
     
     if(method=="missForest") {
       
-      outputMatrix <- missForest::missForest(fuzzyMatrix,...)$ximp
+      outputMatrix <- missForest::missForest(dataToImpute,...)$ximp
       
     }
     
@@ -161,7 +203,7 @@ FuzzyImputation <- function(dataSet,method="dimp",trapezoidal=TRUE,checkFuzzy=FA
     
     if(method=="miceRanger") {
       
-      objMR <- miceRanger::miceRanger(data.frame(fuzzyMatrix),m=1,verbose=FALSE,...)
+      objMR <- miceRanger::miceRanger(data.frame(dataToImpute),m=1,verbose=FALSE,...)
       
       outputMatrix <- data.matrix(miceRanger::completeData(objMR)[[1]])
         
@@ -172,7 +214,7 @@ FuzzyImputation <- function(dataSet,method="dimp",trapezoidal=TRUE,checkFuzzy=FA
     
     if(method=="knn") {
       
-      outputMatrix <- VIM::kNN(fuzzyMatrix,imp_var = FALSE,...)
+      outputMatrix <- VIM::kNN(dataToImpute,imp_var = FALSE,...)
       
       
     }
@@ -182,11 +224,11 @@ FuzzyImputation <- function(dataSet,method="dimp",trapezoidal=TRUE,checkFuzzy=FA
     
     if(checkFuzzy) {
       
-      fuzzyMatrix <- RemoveNotFuzzy(trueData=fuzzyMatrix,imputedData=outputMatrix,trapezoidal = trapezoidal)
+      dataToImpute <- RemoveNotFuzzy(trueData=dataToImpute,imputedData=outputMatrix,trapezoidal = trapezoidal)
       
       # are there some NAs still?
       
-      if(any(is.na(fuzzyMatrix))) 
+      if(any(is.na(dataToImpute))) 
       {
         
         stopImputation=FALSE

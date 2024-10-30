@@ -72,11 +72,8 @@ test_that("Function reports errors", {
   
   expect_error(IntroducingNA(dataMatrix=c(1,2,3),percentage = 0.1),
                
-               "Parameter dataMatrix should be a data frame or a matrix!")
+               "Parameter dataMatrix should be a data frame or a matrix or a list!")
   
-  expect_error(IntroducingNA(dataMatrix=list(1,2,3),percentage = 0.1),
-               
-               "Parameter dataMatrix should be a data frame or a matrix!")
   
   expect_error(IntroducingNA(dataMatrix=testMatrixBad,percentage = 0.1),
                

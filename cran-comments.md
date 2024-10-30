@@ -1,3 +1,10 @@
+I have prepared the new version (0.3.4) of my package. 
+
+* Main changes:
+- Added tests and checking of the parameters for some functions.
+- Corrected errors in IntroducingNA function.
+
+
 I have prepared the new version (0.3.3) of my package. 
 
 * Main changes:

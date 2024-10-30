@@ -5,7 +5,7 @@
 \title{Main method to impute fuzzy values.}
 \usage{
 FuzzyImputation(
-  dataSet,
+  dataToImpute,
   method = "dimp",
   trapezoidal = TRUE,
   checkFuzzy = FALSE,
@@ -14,7 +14,7 @@ FuzzyImputation(
 )
 }
 \arguments{
-\item{dataSet}{Name of the input matrix (data frame or list) of fuzzy numbers with some NAs.}
+\item{dataToImpute}{Name of the input matrix (data frame or list) of fuzzy numbers with some NAs.}
 
 \item{method}{Name of the imputation method (possible values: \code{dimp,missForest,miceRanger,knn}).}
 
