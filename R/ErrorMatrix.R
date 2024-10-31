@@ -22,7 +22,7 @@
 #'
 #'
 #'
-#' @param trueData Name of the input matrix (or data frame) with the true values of the variables.
+#' @param trueData Name of the input matrix (or data frame, or list) with the true values of the variables.
 #'
 #'
 #' @param imputedData Name of the input matrix (or data frame) with the imputed values.
@@ -87,9 +87,9 @@ ErrorMatrix <- function(trueData,imputedData,imputedMask,...)
   
   # checking parameters
   
-  if(!(is.data.frame(trueData) | is.matrix(trueData)))
+  if(!(is.data.frame(trueData) | is.matrix(trueData) | is.list(trueData)))
   {
-    stop("Parameter trueData should be a data frame or a matrix!")
+    stop("Parameter trueData should be a data frame or a matrix or a list!")
   }
   
   
@@ -110,6 +110,14 @@ ErrorMatrix <- function(trueData,imputedData,imputedMask,...)
   if(is.data.frame(trueData))
   {
     trueData <- data.matrix(trueData)
+    
+  } 
+  
+  if(is.list(trueData) && !is.data.frame(trueData))
+  {
+    # conversion to matrix
+    
+    trueData <- FuzzyNumbersToMatrix(trueData,trapezoidal = trapezoidal,...)
     
   } 
   

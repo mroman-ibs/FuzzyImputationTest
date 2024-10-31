@@ -1,3 +1,8 @@
+I have prepared the new version (0.3.5) of my package. 
+
+* Main changes:
+- Improving input parameter for ErrorMatrix.
+
 I have prepared the new version (0.3.4) of my package. 
 
 * Main changes:
