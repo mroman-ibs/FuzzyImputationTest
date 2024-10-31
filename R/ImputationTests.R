@@ -31,7 +31,7 @@
 #'
 #'
 #'
-#' @param trueData Name of the input matrix (or data frame) with the true values of the variables.
+#' @param trueData Name of the input matrix (or data frame, or list) with the true values of the variables.
 #'
 #'
 #' @param imputedData Name of the input matrix (or data frame) with the imputed values.
@@ -123,7 +123,13 @@ ImputationTests <- function(trueData,imputedData,imputedMask,trapezoidal=TRUE,
     
   } 
   
- 
+  if(is.list(trueData) && !is.data.frame(trueData))
+  {
+    # conversion to matrix
+    
+    trueData <- FuzzyNumbersToMatrix(trueData,trapezoidal = trapezoidal,...)
+    
+  } 
   
   
   
@@ -142,7 +148,7 @@ ImputationTests <- function(trueData,imputedData,imputedMask,trapezoidal=TRUE,
   
   # calculate the error matrix
   
-  errorMatrix <- ErrorMatrix(trueData,imputedData,imputedMask,...)
+  errorMatrix <- ErrorMatrix(trueData,imputedData,imputedMask,trapezoidal=trapezoidal,...)
   
   # to do
   

@@ -4,7 +4,7 @@
 \alias{ErrorMatrix}
 \title{Calculation of the errors for the imputed values.}
 \usage{
-ErrorMatrix(trueData, imputedData, imputedMask, ...)
+ErrorMatrix(trueData, imputedData, imputedMask, trapezoidal = TRUE, ...)
 }
 \arguments{
 \item{trueData}{Name of the input matrix (or data frame, or list) with the true values of the variables.}
@@ -12,6 +12,8 @@ ErrorMatrix(trueData, imputedData, imputedMask, ...)
 \item{imputedData}{Name of the input matrix (or data frame) with the imputed values.}
 
 \item{imputedMask}{Matrix (or data frame) with logical values where \code{TRUE} indicates the cells with the imputed values.}
+
+\item{trapezoidal}{Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.}
 
 \item{...}{Additional parameters passed to other functions.}
 }

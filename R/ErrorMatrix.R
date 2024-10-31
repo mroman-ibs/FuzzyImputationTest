@@ -29,6 +29,8 @@
 #' 
 #' @param imputedMask Matrix (or data frame) with logical values where \code{TRUE} indicates the cells with the imputed values.
 #' 
+#' @param trapezoidal Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.
+#' 
 #' @param ... Additional parameters passed to other functions.
 #'
 #'
@@ -82,7 +84,7 @@
 
 
 
-ErrorMatrix <- function(trueData,imputedData,imputedMask,...)
+ErrorMatrix <- function(trueData,imputedData,imputedMask,trapezoidal=TRUE,...)
 {
   
   # checking parameters
