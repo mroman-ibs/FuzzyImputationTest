@@ -107,19 +107,19 @@ StatisticalMeasures <- function(trueData,imputedData,imputedMask,...)
   
   if(is.data.frame(trueData))
   {
-    trueData <- data.matrix(trueData)
+    trueData <- as.matrix(trueData)
     
   } 
   
   if(is.data.frame(imputedData))
   {
-    imputedData <- data.matrix(imputedData)
+    imputedData <- as.matrix(imputedData)
     
   } 
   
   if(is.data.frame(imputedMask))
   {
-    imputedMask <- data.matrix(imputedMask)
+    imputedMask <- as.matrix(imputedMask)
     
   } 
   

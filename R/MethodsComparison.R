@@ -87,7 +87,7 @@ MethodsComparison <- function(trueData,iterations=100,percentage=0.05,trapezoida
   
   if(is.data.frame(trueData))
   {
-    trueData <- data.matrix(trueData)
+    trueData <- as.matrix(trueData)
     
   } 
   

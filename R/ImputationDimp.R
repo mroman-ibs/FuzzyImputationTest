@@ -93,7 +93,7 @@ ImputationDimp <- function(dataToImpute,trapezoidal=TRUE,...)
   
   if(is.data.frame(dataToImpute))
   {
-    dataToImpute <- data.matrix(dataToImpute)
+    dataToImpute <- as.matrix(dataToImpute)
     
   } 
   

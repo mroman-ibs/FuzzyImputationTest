@@ -15,7 +15,7 @@ ImputationTests(
 )
 }
 \arguments{
-\item{trueData}{Name of the input matrix (or data frame) with the true values of the variables.}
+\item{trueData}{Name of the input matrix (or data frame, or list) with the true values of the variables.}
 
 \item{imputedData}{Name of the input matrix (or data frame) with the imputed values.}
 

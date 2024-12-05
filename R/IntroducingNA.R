@@ -64,7 +64,7 @@ IntroducingNA <- function(dataMatrix,percentage=0.05,...)
   
   if(is.data.frame(dataMatrix))
   {
-    dataMatrix <- data.matrix(dataMatrix)
+    dataMatrix <- as.matrix(dataMatrix)
     
   } 
   

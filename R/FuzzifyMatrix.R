@@ -27,10 +27,10 @@
 #' @param crispMatrix Name of the input matrix (or data frame) with real-valued variables to fuzzify.
 #'
 #'
-#' @param coreFactor Value used as the multiplier for the right end of the interval of the uniform distribution applied to
+#' @param coreFactor Value used as the multiplier for the left/right end of the interval of the uniform distribution applied to
 #' randomly generated increments of the core.
 #' 
-#' @param supportFactor Value used as the multiplier for the right end of the interval of the uniform distribution applied to
+#' @param supportFactor Value used as the multiplier for the left/right end of the interval of the uniform distribution applied to
 #' randomly generated increments of the support.
 #' 
 #' @param trapezoidal Logical value that indicates if trapezoidal (or triangular, otherwise) fuzzy numbers should be generated.
@@ -92,7 +92,7 @@ FuzzifyMatrix <- function(crispMatrix,coreFactor=0.2,supportFactor=0.2,trapezoid
   
   if(is.data.frame(crispMatrix))
   {
-    crispMatrix <- data.matrix(crispMatrix)
+    crispMatrix <- as.matrix(crispMatrix)
     
   } 
   

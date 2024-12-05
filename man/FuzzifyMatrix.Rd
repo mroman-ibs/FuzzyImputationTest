@@ -16,10 +16,10 @@ FuzzifyMatrix(
 \arguments{
 \item{crispMatrix}{Name of the input matrix (or data frame) with real-valued variables to fuzzify.}
 
-\item{coreFactor}{Value used as the multiplier for the right end of the interval of the uniform distribution applied to
+\item{coreFactor}{Value used as the multiplier for the left/right end of the interval of the uniform distribution applied to
 randomly generated increments of the core.}
 
-\item{supportFactor}{Value used as the multiplier for the right end of the interval of the uniform distribution applied to
+\item{supportFactor}{Value used as the multiplier for the left/right end of the interval of the uniform distribution applied to
 randomly generated increments of the support.}
 
 \item{trapezoidal}{Logical value that indicates if trapezoidal (or triangular, otherwise) fuzzy numbers should be generated.}

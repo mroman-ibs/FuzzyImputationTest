@@ -78,7 +78,7 @@ RemoveNotFuzzy <- function(trueData,imputedData,trapezoidal=TRUE,...)
   
   if(is.data.frame(trueData))
   {
-    trueData <- data.matrix(trueData)
+    trueData <- as.matrix(trueData)
     
   } 
   
@@ -93,7 +93,7 @@ RemoveNotFuzzy <- function(trueData,imputedData,trapezoidal=TRUE,...)
   
   if(is.data.frame(imputedData))
   {
-    imputedData <- data.matrix(imputedData)
+    imputedData <- as.matrix(imputedData)
     
   } 
   
