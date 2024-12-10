@@ -87,6 +87,32 @@
 
 CalculateFuzzyMeasures <- function(trueData,imputedData,imputedMask,trapezoidal=TRUE,...)
 {
+  # checking parameters
+  
+  if(!(is.data.frame(trueData) | is.matrix(trueData) | is.list(trueData)))
+  {
+    stop("Parameter trueData should be a data frame, a matrix or a list!")
+  }
+  
+  if(!(is.data.frame(imputedData) | is.matrix(imputedData)))
+  {
+    stop("Parameter imputedData should be a data frame or a matrix!")
+  }
+  
+  
+  if(!(is.data.frame(imputedMask) | is.matrix(imputedMask)))
+  {
+    stop("Parameter imputedMask should be a data frame or a matrix!")
+  }
+  
+  
+  if ((length(trapezoidal)!=1 || (is.na(trapezoidal)) || (!is.logical(trapezoidal))))
+  {
+    stop("Parameter trapezoidal should be a single logical value!")
+  }
+  
+  
+  
   # conversions
   
   if(is.data.frame(trueData))
@@ -125,7 +151,33 @@ CalculateFuzzyMeasures <- function(trueData,imputedData,imputedMask,trapezoidal=
     
   } 
   
+  # checking parameters
   
+  if (!is.numeric(trueData))
+  {
+    stop("Parameter trueData should have numerical values!")
+  }
+  
+  if (!is.numeric(imputedData))
+  {
+    stop("Parameter imputedData should have numerical values!")
+  }
+  
+  if (!is.logical(imputedMask))
+  {
+    stop("Parameter imputedMask should have logical values!")
+  }
+  
+  if(!(ncol(trueData) == ncol(imputedData)) & !(ncol(imputedData) == ncol(imputedMask)))
+  {
+    stop("The parameters trueData, imputedData, imputedMask should have the same number of columns!")
+  }
+  
+  
+  if(!(nrow(trueData) == nrow(imputedData)) & !(nrow(imputedData) == nrow(imputedMask)))
+  {
+    stop("The parameters trueData, imputedData, imputedMask should have the same number of rows!")
+  }
   
   # number of all variables
   

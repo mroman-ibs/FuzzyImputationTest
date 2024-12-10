@@ -69,6 +69,51 @@
 
 MeasureAHD <- function(value1,value2,trapezoidal=TRUE,...)
 {
+  # checking parameters
+  
+  if(!(methods::is(value1,"TrapezoidalFuzzyNumber") || is.vector(value1)))
+  {
+    stop("Parameter value1 should be an object of the class TrapezoidalFuzzyNumber or a vector!")
+  }
+  
+  if(!(methods::is(value2,"TrapezoidalFuzzyNumber") || is.vector(value2)))
+  {
+    stop("Parameter value2 should be an object of the class TrapezoidalFuzzyNumber or a vector!!")
+  }
+  
+  if ((length(trapezoidal)!=1 || (is.na(trapezoidal)) || (!is.logical(trapezoidal))))
+  {
+    stop("Parameter trapezoidal should be a single logical value!")
+  }
+  
+  if(is.vector(value1))
+  {
+    if(!is.numeric(value1))
+    {
+      stop("Parameter value1 should be a numeric vector with 3 or 4 values!")
+    }
+    
+    if(!(length(value1)==3 || length(value1)==4))
+    {
+      stop("Parameter value1 should be a numeric vector with 3 or 4 values!")
+    }
+  }
+  
+  
+  if(is.vector(value2))
+  {
+    if(!is.numeric(value2))
+    {
+      stop("Parameter value2 should be a numeric vector with 3 or 4 values!")
+    }
+    
+    if(!(length(value2)==3 || length(value2)==4))
+    {
+      stop("Parameter value2 should be a numeric vector with 3 or 4 values!")
+    }
+  }
+  
+  
   # some conversions
   
   if(methods::is(value1,"TrapezoidalFuzzyNumber"))

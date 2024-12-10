@@ -223,7 +223,7 @@ test_that("Function reports errors", {
   
   expect_error(ErrorMatrix(trueData=testMatrix1,imputedData=testMatrixBadC,imputedMask=testMatrix1Mask),
                
-               "The parameters trueData, imputedData, imputedMask should have the same number of columns!")
+               "The parameters trueData, imputedData, imputedMask should have the same number of rows!")
   
   
   

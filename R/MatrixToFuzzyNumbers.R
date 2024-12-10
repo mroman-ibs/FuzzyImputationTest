@@ -52,11 +52,51 @@
 
 MatrixToFuzzyNumbers <- function(fuzzyMatrix, varNames=NA,...)
 {
+  
+  # checking parameters
+  
+  if(!(is.matrix(fuzzyMatrix)))
+  {
+    stop("Parameter fuzzyList should be a matrix!")
+  }
+  
   if(nrow(fuzzyMatrix)==0)
   {
     stop("Not enough rows in the parameter fuzzyMatrix!")
     
   }
+  
+  if(!(ncol(fuzzyMatrix)==3 || ncol(fuzzyMatrix)==4))
+  {
+    stop("Parameter fuzzyList should be a matrix with 3 or 4 columns!")
+    
+  }
+  
+  if (!is.numeric(fuzzyMatrix))
+  {
+    stop("Parameter fuzzyMatrix should have numerical values!")
+  }
+  
+  if(length(varNames)>1) {
+    
+    if (!is.vector(varNames) || !is.character(varNames))
+    {
+      stop("Parameter varNames should be a vector with character values or NA!")
+    }
+    
+  }
+  
+  if(length(varNames)==1) {
+    
+    if (!(is.na(varNames) || is.character(varNames)))
+    {
+      stop("Parameter varNames should be a vector with character values or NA!")
+    }
+    
+  }
+  
+  
+  
   
   
   output <- list(rep(NA,nrow(fuzzyMatrix)))

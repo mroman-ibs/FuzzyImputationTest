@@ -154,7 +154,7 @@ test_that("Function returns correct values", {
     {
       set.seed(123456)
       
-      ImputationTests(trueData=testMatrix1,imputedData=testMatrix1Res,imputedMask=testMatrix1Mask,cutsNumber = 100, K=10,trapezoidal = TRUE)
+      CalculateFuzzyMeasures(trueData=testMatrix1,imputedData=testMatrix1Res,imputedMask=testMatrix1Mask,trapezoidal = TRUE)
       
     }
   )
@@ -165,7 +165,7 @@ test_that("Function returns correct values", {
     {
       set.seed(123456)
       
-      ImputationTests(trueData=testMatrix2,imputedData=testMatrix2Res,imputedMask=testMatrix2Mask,cutsNumber = 100, K=10,trapezoidal = FALSE)
+      CalculateFuzzyMeasures(trueData=testMatrix2,imputedData=testMatrix2Res,imputedMask=testMatrix2Mask,trapezoidal = FALSE)
       
     }
   )
@@ -176,7 +176,7 @@ test_that("Function returns correct values", {
     {
       set.seed(123456)
       
-      ImputationTests(trueData=testDF1,imputedData=testDF1Res,imputedMask=testDF1Mask,cutsNumber = 100, K=10,trapezoidal = TRUE)
+      CalculateFuzzyMeasures(trueData=testDF1,imputedData=testDF1Res,imputedMask=testDF1Mask,trapezoidal = TRUE)
       
     }
   )
@@ -187,7 +187,7 @@ test_that("Function returns correct values", {
     {
       set.seed(123456)
       
-      ImputationTests(trueData=testDF2,imputedData=testDF2Res,imputedMask=testDF2Mask,cutsNumber = 100, K=10,trapezoidal = FALSE)
+      CalculateFuzzyMeasures(trueData=testDF2,imputedData=testDF2Res,imputedMask=testDF2Mask,trapezoidal = FALSE)
       
     }
   )
@@ -196,7 +196,6 @@ test_that("Function returns correct values", {
   
   
 })
-
 
 
 test_that("Function reports errors", {
@@ -239,32 +238,33 @@ test_that("Function reports errors", {
   
   # tests
   
-  expect_error(ImputationTests(trueData=0.53,imputedData=testMatrix1,imputedMask=testMatrix1Mask,trapezoidal=TRUE),
+  expect_error(CalculateFuzzyMeasures(trueData=0.53,imputedData=testMatrix1,imputedMask=testMatrix1Mask,trapezoidal=TRUE),
                
                "Parameter trueData should be a data frame, a matrix or a list!")
   
   
-  expect_error(ImputationTests(trueData=testMatrixBad,imputedData=testMatrix1,imputedMask=testMatrix1Mask,trapezoidal=TRUE),
+  expect_error(CalculateFuzzyMeasures(trueData=testMatrixBad,imputedData=testMatrix1,imputedMask=testMatrix1Mask,trapezoidal=TRUE),
                
                "Parameter trueData should have numerical values!")
   
-  expect_error(ImputationTests(trueData=testMatrix1,imputedData=testMatrix1,imputedMask=testMatrix1Mask,trapezoidal=c(12,3)),
+  expect_error(CalculateFuzzyMeasures(trueData=testMatrix1,imputedData=testMatrix1,imputedMask=testMatrix1Mask,trapezoidal=c(12,3)),
                
                "Parameter trapezoidal should be a single logical value!")
   
-  expect_error(ImputationTests(trueData=testMatrix1,imputedData=testMatrix1,imputedMask=testMatrixBad,trapezoidal=TRUE),
+  expect_error(CalculateFuzzyMeasures(trueData=testMatrix1,imputedData=testMatrix1,imputedMask=testMatrixBad,trapezoidal=TRUE),
                
                "Parameter imputedMask should have logical values!")
   
-  expect_error(ImputationTests(trueData=testMatrix1,imputedData=testMatrix2,imputedMask=testMatrix1Mask,trapezoidal=TRUE),
+  expect_error(CalculateFuzzyMeasures(trueData=testMatrix1,imputedData=testMatrix2,imputedMask=testMatrix1Mask,trapezoidal=TRUE),
                
                "The parameters trueData, imputedData, imputedMask should have the same number of columns!")
   
-  expect_error(ImputationTests(trueData=testMatrix1,imputedData=testMatrixBadC,imputedMask=testMatrix1Mask,trapezoidal=TRUE),
+  expect_error(CalculateFuzzyMeasures(trueData=testMatrix1,imputedData=testMatrixBadC,imputedMask=testMatrix1Mask,trapezoidal=TRUE),
                
                "The parameters trueData, imputedData, imputedMask should have the same number of rows!")
   
   
   
 })
+
 

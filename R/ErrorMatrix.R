@@ -159,7 +159,7 @@ ErrorMatrix <- function(trueData,imputedData,imputedMask,trapezoidal=TRUE,...)
   
   if(!(nrow(trueData) == nrow(imputedData)) & !(nrow(imputedData) == nrow(imputedMask)))
   {
-    stop("The parameters trueData, imputedData, imputedMask should have the same number of columns!")
+    stop("The parameters trueData, imputedData, imputedMask should have the same number of rows!")
   }
   
   variableNumber <- ncol(trueData)

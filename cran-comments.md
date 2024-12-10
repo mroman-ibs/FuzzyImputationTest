@@ -1,3 +1,9 @@
+I have prepared the new version (0.3.6) of my package. 
+
+* Main changes:
+- Added tests and checking of the parameters for some functions.
+- The call data.matrix was changed to as.matrix
+
 I have prepared the new version (0.3.5) of my package. 
 
 * Main changes:

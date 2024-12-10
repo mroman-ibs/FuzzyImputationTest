@@ -66,6 +66,40 @@
 
 FuzzyNumbersToMatrix <- function(fuzzyList,trapezoidal=TRUE,varNames=NA,...)
 {
+  
+  # checking parameters
+  
+  if(!(is.list(fuzzyList)))
+  {
+    stop("Parameter fuzzyList should be a list of fuzzy numbers!")
+  }
+  
+  
+  if ((length(trapezoidal)!=1 || (is.na(trapezoidal)) || (!is.logical(trapezoidal))))
+  {
+    stop("Parameter trapezoidal should be a single logical value!")
+  }
+  
+  if(length(varNames)>1) {
+    
+    if (!is.vector(varNames) || !is.character(varNames))
+    {
+      stop("Parameter varNames should be a vector with character values or NA!")
+    }
+    
+  }
+  
+  if(length(varNames)==1) {
+    
+    if (!(is.na(varNames) || is.character(varNames)))
+    {
+      stop("Parameter varNames should be a vector with character values or NA!")
+    }
+    
+  }
+  
+  
+  
   numberOfFN <- length(fuzzyList)
   
   if(trapezoidal)
@@ -79,10 +113,10 @@ FuzzyNumbersToMatrix <- function(fuzzyList,trapezoidal=TRUE,varNames=NA,...)
     output <- matrix(NA,nrow = numberOfFN,ncol = 3)
   }
   
-  if(!is.na(varNames))
+  if(!anyNA(varNames))
   {
     
-    rownames(fuzzyList) <- varNames
+    colnames(output) <- varNames
     
   }
   
