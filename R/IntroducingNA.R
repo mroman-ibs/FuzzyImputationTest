@@ -55,9 +55,14 @@ IntroducingNA <- function(dataMatrix,percentage=0.05,...)
   }
   
   
-  if ((length(percentage) !=1) || (!is.numeric(percentage)) || (percentage <=0))
+  if ((length(percentage) !=1) || (!is.numeric(percentage)))
   {
-    stop("Parameter percentage should be a single positive real value!")
+    stop("Parameter percentage should be a single real value from the interval <0,1>!")
+  }
+  
+  if((percentage <=0) || (percentage >=1))
+  {
+    stop("Parameter percentage should be a single real value from the interval <0,1>!")
   }
   
   # conversions

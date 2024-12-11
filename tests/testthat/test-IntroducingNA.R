@@ -79,17 +79,17 @@ test_that("Function reports errors", {
                
                "Parameter dataMatrix should be a numerical matrix or dataframe!")
   
-  expect_error(IntroducingNA(dataMatrix=testMatrix1,percentage = -0.1),
+  expect_error(IntroducingNA(dataMatrix=testMatrix1,percentage = -0.2),
                
-               "Parameter percentage should be a single positive real value!")
+               "Parameter percentage should be a single real value from the interval <0,1>!")
   
   expect_error(IntroducingNA(dataMatrix=testMatrix1,percentage="c"),
                
-               "Parameter percentage should be a single positive real value!")
+               "Parameter percentage should be a single real value from the interval <0,1>!")
   
   expect_error(IntroducingNA(dataMatrix=testMatrix1,percentage=c(1,2,3)),
                
-               "Parameter percentage should be a single positive real value!")
+               "Parameter percentage should be a single real value from the interval <0,1>!")
   
   
   

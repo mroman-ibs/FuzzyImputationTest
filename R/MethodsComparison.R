@@ -83,6 +83,45 @@
 
 MethodsComparison <- function(trueData,iterations=100,percentage=0.05,trapezoidal=TRUE,verbose=TRUE,...)
 {
+  
+  # checking parameters
+  
+  if(!(is.data.frame(trueData) | is.matrix(trueData) | is.list(trueData)))
+  {
+    stop("Parameter trueData should be a data frame or a matrix or a list!")
+  }
+  
+  if ((length(trapezoidal)!=1 || (is.na(trapezoidal)) || (!is.logical(trapezoidal))))
+  {
+    stop("Parameter trapezoidal should be a single logical value!")
+  }
+  
+  if (length(iterations)!=1)
+  {
+    stop("Parameter iterations should be a single integer value greater than 0!")
+  }
+  
+  if ((!IfInteger(iterations)) || iterations <= 0)
+  {
+    stop("Parameter iterations should be a single integer value greater than 0!")
+  }
+  
+  
+  if (length(percentage)!=1)
+  {
+    stop("Parameter percentage should be a single numeric value from the interval <0,1>!")
+  }
+  
+  if ((!is.numeric(percentage)) || percentage <= 0 || percentage >= 1)
+  {
+    stop("Parameter percentage should be a single numeric value from the interval <0,1>!")
+  }
+  
+  if ((length(verbose)!=1 || (is.na(verbose)) || (!is.logical(verbose))))
+  {
+    stop("Parameter verbose should be a single logical value!")
+  }
+  
   # conversions
   
   if(is.data.frame(trueData))
@@ -99,6 +138,13 @@ MethodsComparison <- function(trueData,iterations=100,percentage=0.05,trapezoida
     trueData <- FuzzyNumbersToMatrix(fuzzyList=trueData,trapezoidal=trapezoidal,...)
     
   } 
+  
+  # checking parameters
+  
+  if (!is.numeric(trueData))
+  {
+    stop("Parameter trueData should have numerical values!")
+  }
   
   if(verbose)
   {
