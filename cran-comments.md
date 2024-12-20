@@ -1,3 +1,9 @@
+I have prepared the new version (0.3.8) of my package. 
+
+* Main changes:
+- Added summary function for MethodsComparison and ImputationTests.
+- Removed some vectors with names from the namespace available for the users.
+
 I have prepared the new version (0.3.6) of my package. 
 
 * Main changes:

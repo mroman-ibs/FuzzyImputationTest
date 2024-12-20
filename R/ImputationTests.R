@@ -18,9 +18,14 @@
 #' 
 #' All of the input datasets can be given as matrices or data frames.
 #' 
+#' To get overall comparison of the methods, \code{summary(object,...)} can be used for the output object from this method.
+#' The values \code{diff} are equal to the differences of p-values between the respective tests for the parts
+#' \code{true} and \code{imputed} there. 
+#' 
 #'
 #' @return
-#' The output is given as a list of the matrices: \code{trueValues} - the true, input values (the same as \code{trueData}),
+#' The output is an S3 object of the class \code{impTest} given as a list of the matrices:
+#' \code{trueValues} - the true, input values (the same as \code{trueData}),
 #' \code{mask} - the masked (NAs) values (the same as \code{imputedMask}),
 #' \code{nonFNNumbers} - the vector with the numbers of non-FNs samples for each variable (with the overall mean),
 #' \code{errorMatrix} -- the output from the function \code{ErrorMatrix},
@@ -28,7 +33,7 @@
 #'  \code{statisticalTests} -- the output from the function \code{ApplyStatisticalTests}, 
 #' \code{fuzzyMeasures} -- the output from the function \code{CalculateFuzzyMeasures}.
 #'
-#'
+#' @seealso \code{\link{MethodsComparison} for the imputation benchmark for all methods, \link{summary.impTest}}.
 #'
 #'
 #' @param trueData Name of the input matrix (or data frame, or list) with the true values of the variables.
@@ -221,14 +226,16 @@ ImputationTests <- function(trueData,imputedData,imputedMask,trapezoidal=TRUE,
   
   
   
+  
+  output <- list(trueValues=trueData,
+                 mask=imputedMask,
+                 nonFNNumbers=nonFNNumbers,
+                 errorMatrix=errorMatrix,
+                 statisticalMeasures=statisticalMeasures,
+                 statisticalTests=statisticalTests,
+                 fuzzyMeasures=fuzzyMeasures)
 
-  return(list(trueValues=trueData,
-              mask=imputedMask,
-              nonFNNumbers=nonFNNumbers,
-              errorMatrix=errorMatrix,
-              statisticalMeasures=statisticalMeasures,
-              statisticalTests=statisticalTests,
-              fuzzyMeasures=fuzzyMeasures))
+  return(structure(output,class="impTest"))
   
   
 }

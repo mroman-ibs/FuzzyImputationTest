@@ -193,6 +193,8 @@
       HSD        0    0
       
       
+      attr(,"class")
+      [1] "metComp"
 
 ---
 
@@ -389,6 +391,8 @@
       HSD        0    0
       
       
+      attr(,"class")
+      [1] "metComp"
 
 ---
 
@@ -585,4 +589,6 @@
       HSD        0    0
       
       
+      attr(,"class")
+      [1] "metComp"
 

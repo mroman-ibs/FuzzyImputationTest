@@ -7,4 +7,5 @@
 ^CRAN-SUBMISSION$
 ^data-raw$
 ^.github
+^test_paper.R
 

@@ -13,9 +13,12 @@
 #' 
 #' The input dataset can be given as matrix or data frame.
 #' 
+#' To get overall comparison of the methods, \code{summary(object,...)} can be used for the output object from this method.
+#' The values \code{diff} are equal to the differences of p-values between the respective tests for the parts
+#' \code{true} and \code{imputed} there.  
 #'
 #' @return
-#' The output is given as a list of the matrices: 
+#' The output is an S3 object of the class \code{metComp} given as a list of the matrices: 
 #' \code{nonFNNumbers} - the vector with the numbers of non-FNs samples for each variable (with the overall mean),
 #' \code{errorMatrix} -- the output from the function \code{ErrorMatrix},
 #' \code{statisticalMeasures} -- the output from the function \code{StatisticalMeasures}, 
@@ -23,7 +26,7 @@
 #' \code{fuzzyMeasures} -- the output from the function \code{CalculateFuzzyMeasures}.
 #'
 #'
-#'
+#' @seealso \code{\link{ImputationTests} for the single imputation benchmark, \link{summary.metComp}}.
 #'
 #' @param trueData Name of the input matrix (or data frame) with the true values of the variables.
 #'
@@ -254,12 +257,12 @@ MethodsComparison <- function(trueData,iterations=100,percentage=0.05,trapezoida
   
   outputQualityKnn <- mapply("/", outputQualityKnn,iterations)
   
+  outputList <- list(dimp=outputQualityDimp,
+                     missForest=outputQualityMF,
+                     miceRanger=outputQualityMiceR,
+                     knn=outputQualityKnn)
   
-  
-  return(list(dimp=outputQualityDimp,
-              missForest=outputQualityMF,
-              miceRanger=outputQualityMiceR,
-              knn=outputQualityKnn))
+  return(structure(outputList,class="metComp"))
   
   
 }

@@ -30,7 +30,8 @@ ImputationTests(
 \item{...}{Additional parameters passed to other functions.}
 }
 \value{
-The output is given as a list of the matrices: \code{trueValues} - the true, input values (the same as \code{trueData}),
+The output is an S3 object of the class \code{impTest} given as a list of the matrices:
+\code{trueValues} - the true, input values (the same as \code{trueData}),
 \code{mask} - the masked (NAs) values (the same as \code{imputedMask}),
 \code{nonFNNumbers} - the vector with the numbers of non-FNs samples for each variable (with the overall mean),
 \code{errorMatrix} -- the output from the function \code{ErrorMatrix},
@@ -55,6 +56,10 @@ In this matrix, the logical value \code{TRUE} points out the cells with the impu
 Otherwise, \code{FALSE} should be used.
 
 All of the input datasets can be given as matrices or data frames.
+
+To get overall comparison of the methods, \code{summary(object,...)} can be used for the output object from this method.
+The values \code{diff} are equal to the differences of p-values between the respective tests for the parts
+\code{true} and \code{imputed} there.
 }
 \examples{
 
@@ -102,4 +107,7 @@ ImputationTests(matrix1,matrix1DImp,matrix1Mask,trapezoidal=TRUE)
 
 
 
+}
+\seealso{
+\code{\link{MethodsComparison} for the imputation benchmark for all methods, \link{summary.impTest}}.
 }

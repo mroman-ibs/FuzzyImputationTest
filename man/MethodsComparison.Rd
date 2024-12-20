@@ -27,7 +27,7 @@ MethodsComparison(
 \item{...}{Additional parameters passed to other functions.}
 }
 \value{
-The output is given as a list of the matrices: 
+The output is an S3 object of the class \code{metComp} given as a list of the matrices: 
 \code{nonFNNumbers} - the vector with the numbers of non-FNs samples for each variable (with the overall mean),
 \code{errorMatrix} -- the output from the function \code{ErrorMatrix},
 \code{statisticalMeasures} -- the output from the function \code{StatisticalMeasures}, 
@@ -46,6 +46,10 @@ To generate the new NAs values, the function \code{IntroducingNA} is used.
 Next, the results, the same as for\code{ImputationTests} (apart from \code{trueValues} and \code{mask}), are averaged.
 
 The input dataset can be given as matrix or data frame.
+
+To get overall comparison of the methods, \code{summary(object,...)} can be used for the output object from this method.
+The values \code{diff} are equal to the differences of p-values between the respective tests for the parts
+\code{true} and \code{imputed} there.
 }
 \examples{
 
@@ -82,4 +86,7 @@ MethodsComparison(matrix1,iterations=10,trapezoidal=TRUE)
 
 }
 
+}
+\seealso{
+\code{\link{ImputationTests} for the single imputation benchmark, \link{summary.metComp}}.
 }
