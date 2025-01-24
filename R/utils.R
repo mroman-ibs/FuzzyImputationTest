@@ -80,7 +80,7 @@ IfInteger <- function(x)
 
 # A vector containing names of the calculated distance measures between fuzzy numbers.
 
-distanceNames <- c("Euclidean", "AHD", "HSD")
+distanceNames <- c("Euclidean", "AHD", "HSD", "DiffVal", "DiffAmb", "DiffEV", "DiffWidth")
 
 # A vector containing names of the types of the calculated errors.
 

@@ -42,6 +42,14 @@ CalculateFuzzyMeasuresSingleVar <- function(fuzzyMatrix1,fuzzyMatrix2,imputedMas
     
     output["HSD"] <-  output["HSD"] + MeasureHSD(fuzzyMatrix1Imp[i,],fuzzyMatrix2Imp[i,],trapezoidal = trapezoidal)
     
+    output["DiffVal"] <-  output["DiffVal"] + MeasureCharacteristic(fuzzyMatrix1Imp[i,],fuzzyMatrix2Imp[i,],type="HValue",trapezoidal = trapezoidal)
+    
+    output["DiffAmb"] <-  output["DiffAmb"] + MeasureCharacteristic(fuzzyMatrix1Imp[i,],fuzzyMatrix2Imp[i,],type="HAmbiguity",trapezoidal = trapezoidal)
+    
+    output["DiffEV"] <-  output["DiffEV"] + MeasureCharacteristic(fuzzyMatrix1Imp[i,],fuzzyMatrix2Imp[i,],type="EV",trapezoidal = trapezoidal)
+    
+    output["DiffWidth"] <-  output["DiffWidth"] + MeasureCharacteristic(fuzzyMatrix1Imp[i,],fuzzyMatrix2Imp[i,],type="Width",trapezoidal = trapezoidal)
+    
     # print(output)
     
   }

@@ -31,7 +31,8 @@ The output is given as a matrix (the rows are related to various types of the er
 }
 \details{
 The procedure calculates different types of the distance measures (Euclidean - the Euclidean measure,
-AHD - the AHD measure, HSD - the HSD measure)
+AHD - the AHD measure, HSD - the HSD measure), and means of the absolute differences for various fuzzy characteristics
+(DiffVal - the difference of the value, DiffAmb - the ambiguity, DiffEV - the expected value, DiffWidth - the width)
 between two datasets - the first one with true values (set by \code{trueData}), and the second one (specified by \code{imputedData}) with
 the imputed variables.
 Only the truly imputed values are taken into account for these calculations.

@@ -1,3 +1,9 @@
+I have prepared the new version (0.4.0) of my package. 
+
+* Main changes:
+- Added additional output for ImputationTests
+
+
 I have prepared the new version (0.3.8) of my package. 
 
 * Main changes:

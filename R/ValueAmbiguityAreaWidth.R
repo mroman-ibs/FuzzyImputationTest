@@ -43,3 +43,25 @@ HDistance <- function(fuzzyNumber1,fuzzyNumber2)
   return(output)
 }
 
+# Expected Value
+
+EV <- function(fuzzyNumber)
+{
+  output <- (fuzzyNumber[1]+fuzzyNumber[2]+fuzzyNumber[3]+fuzzyNumber[4]) / 4
+  
+  return(output)
+  
+  
+}
+
+# width
+
+Width <- function(fuzzyNumber)
+{
+  output <- (-fuzzyNumber[1]-fuzzyNumber[2]+fuzzyNumber[3]+fuzzyNumber[4]) / 4
+  
+  return(output)
+  
+  
+}
+
