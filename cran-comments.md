@@ -1,3 +1,9 @@
+I have prepared the new version (0.5.0) of my package. 
+
+* Main changes:
+- Added calculation of the standard errors for MethodsComparison
+
+
 I have prepared the new version (0.4.0) of my package. 
 
 * Main changes:
