@@ -33,6 +33,8 @@
 #' 
 #' @param trapezoidal Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.
 #' 
+#' @param theta The weight for the Bertoluzza measure.
+#' 
 #' @param ... Additional parameters passed to other functions.
 #'
 #'
@@ -86,7 +88,7 @@
 
 
 
-CalculateFuzzyMeasures <- function(trueData,imputedData,imputedMask,trapezoidal=TRUE,...)
+CalculateFuzzyMeasures <- function(trueData,imputedData,imputedMask,trapezoidal=TRUE,theta=1/3,...)
 {
   # checking parameters
   
@@ -215,7 +217,7 @@ CalculateFuzzyMeasures <- function(trueData,imputedData,imputedMask,trapezoidal=
     outputSingleVar <- CalculateFuzzyMeasuresSingleVar(trueData[,rangeToCheck],
                                                        imputedData[,rangeToCheck],
                                                        imputedMask[,rangeToCheck],
-                                                       trapezoidal=trapezoidal)
+                                                       trapezoidal=trapezoidal,theta=theta)
     
     # input to the output matrix
     

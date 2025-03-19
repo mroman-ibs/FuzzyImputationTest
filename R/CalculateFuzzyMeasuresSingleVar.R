@@ -1,6 +1,6 @@
 # calculate all fuzzy distances for the pairs of fuzzy numbers for single variable
 
-CalculateFuzzyMeasuresSingleVar <- function(fuzzyMatrix1,fuzzyMatrix2,imputedMask,trapezoidal,...)
+CalculateFuzzyMeasuresSingleVar <- function(fuzzyMatrix1,fuzzyMatrix2,imputedMask,trapezoidal,theta)
 {
   # create vector for output
   
@@ -50,21 +50,17 @@ CalculateFuzzyMeasuresSingleVar <- function(fuzzyMatrix1,fuzzyMatrix2,imputedMas
     {
       # cat("fuzzyMatrix1Imp[i,]: ", fuzzyMatrix1Imp[i,] , "\n")
       
-      a <- FuzzyNumbers::TrapezoidalFuzzyNumber(fuzzyMatrix1Imp[i,1],fuzzyMatrix1Imp[i,2],fuzzyMatrix1Imp[i,3],fuzzyMatrix1Imp[i,4])
+      valueBert <- FuzzyResampling::BertoluzzaDistance(fuzzyMatrix1Imp[i,],fuzzyMatrix2Imp[i,],theta=theta)
       
-      # cat("fuzzyMatrix2Imp[i,]: ", fuzzyMatrix2Imp[i,] , "\n")
-
-      b <- FuzzyNumbers::TrapezoidalFuzzyNumber(fuzzyMatrix2Imp[i,1],fuzzyMatrix2Imp[i,2],fuzzyMatrix2Imp[i,3],fuzzyMatrix2Imp[i,4])
-
     } else {
-
-      a <- FuzzyNumbers::TriangularFuzzyNumber(fuzzyMatrix1Imp[i,1],fuzzyMatrix1Imp[i,2],fuzzyMatrix1Imp[i,3])
-
-      b <- FuzzyNumbers::TriangularFuzzyNumber(fuzzyMatrix2Imp[i,1],fuzzyMatrix2Imp[i,2],fuzzyMatrix2Imp[i,3])
+      
+      valueBert <- FuzzyResampling::BertoluzzaDistance(c(fuzzyMatrix1Imp[i,1],fuzzyMatrix1Imp[i,2],fuzzyMatrix1Imp[i,2],fuzzyMatrix1Imp[i,3]),
+                                                       c(fuzzyMatrix2Imp[i,1],fuzzyMatrix2Imp[i,2],fuzzyMatrix2Imp[i,2],fuzzyMatrix2Imp[i,3]),
+                                                       theta=theta)
 
     }
 
-    output["Bertoluzza"] <-  output["Bertoluzza"] + FuzzySTs::distance(a,b,type = "Bertoluzza",...)
+    output["Bertoluzza"] <-  output["Bertoluzza"] + valueBert
     
     output["DiffVal"] <-  output["DiffVal"] + MeasureCharacteristic(fuzzyMatrix1Imp[i,],fuzzyMatrix2Imp[i,],type="HValue",trapezoidal = trapezoidal)
     

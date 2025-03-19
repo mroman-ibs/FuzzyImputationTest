@@ -9,6 +9,7 @@ CalculateFuzzyMeasures(
   imputedData,
   imputedMask,
   trapezoidal = TRUE,
+  theta = 1/3,
   ...
 )
 }
@@ -20,6 +21,8 @@ CalculateFuzzyMeasures(
 \item{imputedMask}{Matrix (or data frame) with logical values where \code{TRUE} indicates the cells with the imputed values.}
 
 \item{trapezoidal}{Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.}
+
+\item{theta}{The weight for the Bertoluzza measure.}
 
 \item{...}{Additional parameters passed to other functions.}
 }
