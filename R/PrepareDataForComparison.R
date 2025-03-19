@@ -12,7 +12,7 @@ PrepareDataForComparison <- function(outputImpTest)
   
   # add the squared mean to the nonFNNumbers
   
-  output$nonFNNumbers <- c(output$nonFNNumbers,output$nonFNNumbers["mean"]^2)
+  output$nonFNNumbers <- c(output$nonFNNumbers,(output$nonFNNumbers["mean"])^2)
   
   names(output$nonFNNumbers) <- c(oldNames,"se")
   
@@ -22,7 +22,7 @@ PrepareDataForComparison <- function(outputImpTest)
     
     oldNames <- colnames(output[[i]])
     
-    output[[i]] <- cbind(output[[i]],output[[i]][,"mean"]^2)
+    output[[i]] <- cbind(output[[i]],(output[[i]][,"mean"])^2)
     
     colnames(output[[i]]) <- c(oldNames,"se")
     

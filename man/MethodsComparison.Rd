@@ -43,7 +43,7 @@ The procedure uses the function \code{ImputationTests} to compare the quality of
 To minimize random effects, each analysis is repeated \code{iterations} times with the new randomly generated NA values
 in the input dataset, and then new imputed values for all built-in methods.
 To generate the new NAs values, the function \code{IntroducingNA} is used.
-Next, the results, the same as for\code{ImputationTests} (apart from \code{trueValues} and \code{mask}), are averaged.
+Next, the results, the same as for\code{ImputationTests} (apart from \code{trueValues} and \code{mask}), are averaged and their standard errors calculated (see the column \code{se}).
 
 The input dataset can be given as matrix or data frame.
 

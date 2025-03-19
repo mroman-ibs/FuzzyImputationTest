@@ -6,7 +6,7 @@ CalculateSE <- function(outputImpTest,iterations)
   
   # calculate SE for nonFNNumbers (difference of the squares)
   
-  value <- output$nonFNNumbers["se"] - output$nonFNNumbers["mean"]^2
+  value <- output$nonFNNumbers["se"] - (output$nonFNNumbers["mean"])^2
   
   output$nonFNNumbers["se"] <- sqrt(value/iterations) 
   
@@ -14,9 +14,10 @@ CalculateSE <- function(outputImpTest,iterations)
   
   for (i in 2:length(output)) {
     
-    value <- output[[i]][,"se"] - output[[i]][,"mean"]^2
+    value <- output[[i]][,"se"] - (output[[i]][,"mean"])^2
     
     output[[i]][,"se"] <- sqrt(value/iterations) 
+    
     
   }
   

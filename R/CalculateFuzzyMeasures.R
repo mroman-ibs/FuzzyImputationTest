@@ -5,7 +5,7 @@
 #'
 #' @details
 #' The procedure calculates different types of the distance measures (Euclidean - the Euclidean measure,
-#' AHD - the AHD measure, HSD - the HSD measure), and means of the absolute differences for various fuzzy characteristics
+#' AHD - the AHD measure, HSD - the HSD measure, Bertoluzza - the Bertoluzza distance), and means of the absolute differences for various fuzzy characteristics
 #' (DiffVal - the difference of the value, DiffAmb - the ambiguity, DiffEV - the expected value, DiffWidth - the width)
 #' between two datasets - the first one with true values (set by \code{trueData}), and the second one (specified by \code{imputedData}) with
 #' the imputed variables.

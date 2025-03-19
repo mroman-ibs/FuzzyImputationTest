@@ -5,14 +5,15 @@
       CalculateFuzzyMeasures(trueData = testMatrix1, imputedData = testMatrix1Res,
         imputedMask = testMatrix1Mask, trapezoidal = TRUE)
     Output
-                         V1        mean
-      Euclidean 0.005449334 0.005449334
-      AHD       0.073902810 0.073902810
-      HSD       0.043646307 0.043646307
-      DiffVal   0.022888064 0.022888064
-      DiffAmb   0.030332704 0.030332704
-      DiffEV    0.024673023 0.024673023
-      DiffWidth 0.030256503 0.030256503
+                         V1       mean
+      Euclidean  0.01597974 0.01597974
+      AHD        0.20373806 0.20373806
+      HSD        0.14043065 0.14043065
+      Bertoluzza 0.07935234 0.07935234
+      DiffVal    0.06332650 0.06332650
+      DiffAmb    0.07076335 0.07076335
+      DiffEV     0.05773562 0.05773562
+      DiffWidth  0.06330741 0.06330741
 
 ---
 
@@ -21,14 +22,15 @@
       CalculateFuzzyMeasures(trueData = testMatrix2, imputedData = testMatrix2Res,
         imputedMask = testMatrix2Mask, trapezoidal = FALSE)
     Output
-                         V1        mean
-      Euclidean 0.007183843 0.007183843
-      AHD       0.068766234 0.068766234
-      HSD       0.052609624 0.052609624
-      DiffVal   0.033001344 0.033001344
-      DiffAmb   0.010771073 0.010771073
-      DiffEV    0.025726234 0.025726234
-      DiffWidth 0.016156609 0.016156609
+                         V1       mean
+      Euclidean  0.02153806 0.02153806
+      AHD        0.21252430 0.21252430
+      HSD        0.15907851 0.15907851
+      Bertoluzza 0.10464545 0.10464545
+      DiffVal    0.07428797 0.07428797
+      DiffAmb    0.03563052 0.03563052
+      DiffEV     0.07534339 0.07534339
+      DiffWidth  0.05344578 0.05344578
 
 ---
 
@@ -37,14 +39,15 @@
       CalculateFuzzyMeasures(trueData = testDF1, imputedData = testDF1Res,
         imputedMask = testDF1Mask, trapezoidal = TRUE)
     Output
-                         V1        mean
-      Euclidean 0.005449334 0.005449334
-      AHD       0.073902810 0.073902810
-      HSD       0.043646307 0.043646307
-      DiffVal   0.022888064 0.022888064
-      DiffAmb   0.030332704 0.030332704
-      DiffEV    0.024673023 0.024673023
-      DiffWidth 0.030256503 0.030256503
+                         V1       mean
+      Euclidean  0.01597974 0.01597974
+      AHD        0.20373806 0.20373806
+      HSD        0.14043065 0.14043065
+      Bertoluzza 0.07935234 0.07935234
+      DiffVal    0.06332650 0.06332650
+      DiffAmb    0.07076335 0.07076335
+      DiffEV     0.05773562 0.05773562
+      DiffWidth  0.06330741 0.06330741
 
 ---
 
@@ -53,12 +56,13 @@
       CalculateFuzzyMeasures(trueData = testDF2, imputedData = testDF2Res,
         imputedMask = testDF2Mask, trapezoidal = FALSE)
     Output
-                         V1        mean
-      Euclidean 0.007183843 0.007183843
-      AHD       0.068766234 0.068766234
-      HSD       0.052609624 0.052609624
-      DiffVal   0.033001344 0.033001344
-      DiffAmb   0.010771073 0.010771073
-      DiffEV    0.025726234 0.025726234
-      DiffWidth 0.016156609 0.016156609
+                         V1       mean
+      Euclidean  0.02153806 0.02153806
+      AHD        0.21252430 0.21252430
+      HSD        0.15907851 0.15907851
+      Bertoluzza 0.10464545 0.10464545
+      DiffVal    0.07428797 0.07428797
+      DiffAmb    0.03563052 0.03563052
+      DiffEV     0.07534339 0.07534339
+      DiffWidth  0.05344578 0.05344578
 
