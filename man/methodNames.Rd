@@ -5,7 +5,7 @@
 \alias{methodNames}
 \title{A vector containing names of the resampling methods.}
 \format{
-An object of class \code{character} of length 4.
+An object of class \code{character} of length 5.
 }
 \usage{
 methodNames

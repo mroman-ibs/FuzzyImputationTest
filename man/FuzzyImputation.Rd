@@ -10,13 +10,14 @@ FuzzyImputation(
   trapezoidal = TRUE,
   checkFuzzy = FALSE,
   verbose = TRUE,
+  pmmWarnings = TRUE,
   ...
 )
 }
 \arguments{
 \item{dataToImpute}{Name of the input matrix (data frame or list) of fuzzy numbers with some NAs.}
 
-\item{method}{Name of the imputation method (possible values: \code{dimp,missForest,miceRanger,knn}).}
+\item{method}{Name of the imputation method (possible values: \code{dimp,missForest,miceRanger,knn,pmm}).}
 
 \item{trapezoidal}{Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.}
 
@@ -24,6 +25,8 @@ FuzzyImputation(
 If there are some improper fuzzy numbers, they are removed, and the imputation procedure is repeated.}
 
 \item{verbose}{If \code{TRUE} is set, the current simulation number is printed.}
+
+\item{pmmWarnings}{Suppress warnings from \code{pmm} method.}
 
 \item{...}{Additional parameters that are passed to the imputation procedure.}
 }
@@ -44,7 +47,7 @@ The input has to consist of fuzzy numbers of the same type (i.e., mixing triangu
 
 Various possible imputation methods can be used when the parameter \code{method} is specified --
  both the general ones (\code{missForest} or \code{miceRanger} from the respective packages, or \code{knn} from
- \code{VIM} package) and a more specific ones, tailored for the fuzzy data (\code{dimp} in the case of the DIMP method).
+ \code{VIM} package, or \code{pmm} from \code{mice} package) and a more specific ones, tailored for the fuzzy data (\code{dimp} in the case of the DIMP method).
 Please note that due to the imputation, some output values can be improper fuzzy variables 
 (e.g., a core of a fuzzy number can have greater value than its right end of the support).
 To avoid this, \code{checkFuzzy=TRUE} should be set.

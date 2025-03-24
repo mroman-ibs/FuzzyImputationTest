@@ -14,7 +14,7 @@
 #' 
 #' Various possible imputation methods can be used when the parameter \code{method} is specified --
 #'  both the general ones (\code{missForest} or \code{miceRanger} from the respective packages, or \code{knn} from
-#'  \code{VIM} package) and a more specific ones, tailored for the fuzzy data (\code{dimp} in the case of the DIMP method).
+#'  \code{VIM} package, or \code{pmm} from \code{mice} package) and a more specific ones, tailored for the fuzzy data (\code{dimp} in the case of the DIMP method).
 #' Please note that due to the imputation, some output values can be improper fuzzy variables 
 #' (e.g., a core of a fuzzy number can have greater value than its right end of the support).
 #' To avoid this, \code{checkFuzzy=TRUE} should be set.
@@ -32,7 +32,7 @@
 #'
 #' @param dataToImpute Name of the input matrix (data frame or list) of fuzzy numbers with some NAs.
 #' 
-#' @param method Name of the imputation method (possible values: \code{dimp,missForest,miceRanger,knn}).
+#' @param method Name of the imputation method (possible values: \code{dimp,missForest,miceRanger,knn,pmm}).
 #'
 #'
 #' @param trapezoidal Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.
@@ -41,6 +41,8 @@
 #' If there are some improper fuzzy numbers, they are removed, and the imputation procedure is repeated.
 #' 
 #' @param verbose If \code{TRUE} is set, the current simulation number is printed.
+#' 
+#' @param pmmWarnings Suppress warnings from \code{pmm} method.
 #' 
 #' @param ... Additional parameters that are passed to the imputation procedure.
 #'
@@ -98,7 +100,7 @@
 
 # main method to impute values
 
-FuzzyImputation <- function(dataToImpute,method="dimp",trapezoidal=TRUE,checkFuzzy=FALSE,verbose=TRUE,...)
+FuzzyImputation <- function(dataToImpute,method="dimp",trapezoidal=TRUE,checkFuzzy=FALSE,verbose=TRUE,pmmWarnings=TRUE,...)
 {
   # checking parameters
   
@@ -215,6 +217,25 @@ FuzzyImputation <- function(dataToImpute,method="dimp",trapezoidal=TRUE,checkFuz
     if(method=="knn") {
       
       outputMatrix <- VIM::kNN(dataToImpute,imp_var = FALSE,...)
+      
+      
+    }
+    
+    # use pmm from mice
+    
+    if(method=="pmm") {
+      
+      if(pmmWarnings) {
+        
+        temp <- mice::mice(dataToImpute,m=1,defaultMethod = "pmm",printFlag = FALSE,...)
+        
+      } else {
+        
+        suppressWarnings(temp <- mice::mice(dataToImpute,m=1,defaultMethod = "pmm",printFlag = FALSE,...))
+        
+      }
+      
+      outputMatrix <- data.matrix(mice::complete(temp))
       
       
     }

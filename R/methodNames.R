@@ -15,4 +15,4 @@
 #' @export
 
 
-methodNames <- c("dimp", "missForest", "miceRanger","knn")
+methodNames <- c("dimp", "missForest", "miceRanger","knn","pmm")

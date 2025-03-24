@@ -181,6 +181,8 @@ MethodsComparison <- function(trueData,iterations=100,percentage=0.05,trapezoida
     
     imputedDataKnn <- FuzzyImputation(dataToImpute = dataWithNA,method = "knn", trapezoidal = trapezoidal,verbose = FALSE,...)
     
+    imputedDataPmm <- FuzzyImputation(dataToImpute = dataWithNA,method = "pmm", trapezoidal = trapezoidal,verbose = FALSE,pmmWarnings=FALSE,...)
+    
     # check quality
     
     qualityDimp <- ImputationTests(trueData = trueData,imputedData = imputedDataDimp,
@@ -194,6 +196,9 @@ MethodsComparison <- function(trueData,iterations=100,percentage=0.05,trapezoida
     
     qualityKnn <- ImputationTests(trueData = trueData,imputedData = imputedDataKnn,
                                    imputedMask=imputationMask,trapezoidal = trapezoidal,...)
+    
+    qualityPmm <- ImputationTests(trueData = trueData,imputedData = imputedDataPmm,
+                                  imputedMask=imputationMask,trapezoidal = trapezoidal,...)
     
     # print(qualityDimp)
     
@@ -209,6 +214,8 @@ MethodsComparison <- function(trueData,iterations=100,percentage=0.05,trapezoida
       
       outputQualityKnn <- PrepareDataForComparison(qualityKnn)
       
+      outputQualityPmm <- PrepareDataForComparison(qualityPmm)
+      
       # print(outputQualityDimp)
       
     } else {
@@ -220,6 +227,8 @@ MethodsComparison <- function(trueData,iterations=100,percentage=0.05,trapezoida
       outputQualityMiceR <- mapply("+", PrepareDataForComparison(qualityMiceR),outputQualityMiceR)
       
       outputQualityKnn <- mapply("+", PrepareDataForComparison(qualityKnn),outputQualityKnn)
+      
+      outputQualityPmm <- mapply("+", PrepareDataForComparison(qualityPmm),outputQualityPmm)
       
       # print(outputQualityDimp)
 
@@ -257,6 +266,8 @@ MethodsComparison <- function(trueData,iterations=100,percentage=0.05,trapezoida
   
   outputQualityKnn <- mapply("/", outputQualityKnn,iterations)
   
+  outputQualityPmm <- mapply("/", outputQualityPmm,iterations)
+  
   # calculation of the standard errors
   
   outputQualityDimp <- CalculateSE(outputQualityDimp, iterations=iterations)
@@ -267,10 +278,13 @@ MethodsComparison <- function(trueData,iterations=100,percentage=0.05,trapezoida
   
   outputQualityKnn <- CalculateSE(outputQualityKnn, iterations=iterations)
   
+  outputQualityPmm <- CalculateSE(outputQualityPmm, iterations=iterations)
+  
   outputList <- list(dimp=outputQualityDimp,
                      missForest=outputQualityMF,
                      miceRanger=outputQualityMiceR,
-                     knn=outputQualityKnn)
+                     knn=outputQualityKnn,
+                     pmm=outputQualityPmm)
   
   return(structure(outputList,class="metComp"))
   
