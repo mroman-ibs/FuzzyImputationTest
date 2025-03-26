@@ -2,6 +2,8 @@ I have prepared the new version (0.5.0) of my package.
 
 * Main changes:
 - Added calculation of the standard errors for MethodsComparison
+- Added Bertoluzza distance for benchmarks
+- Added pmm method for imputation
 
 
 I have prepared the new version (0.4.0) of my package. 
