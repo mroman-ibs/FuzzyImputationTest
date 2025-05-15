@@ -1,3 +1,9 @@
+I have prepared the new version (0.5.1) of my package. 
+
+* Main changes:
+- Changed "NeedsCompilation" to "no" as requested.
+
+
 I have prepared the new version (0.5.0) of my package. 
 
 * Main changes:
