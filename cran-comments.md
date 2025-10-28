@@ -1,3 +1,10 @@
+I have prepared the new version (0.5.2) of my package. 
+
+* Main changes:
+- Added pmm method for imputation.
+- Corrected errors related to ranger function from another pacakge.
+
+
 I have prepared the new version (0.5.1) of my package. 
 
 * Main changes:

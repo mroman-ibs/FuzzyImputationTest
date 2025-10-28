@@ -18,6 +18,7 @@ FuzzyNumbersToMatrix(fuzzyList, trapezoidal = TRUE, varNames = NA, ...)
 \value{
 The output is given as a matrix with 3 (for triangular fuzzy numbers)
 or 4 (for trapezoidal ones) columns and the number of rows is equal to number of fuzzy values.
+The names of the output columns can be given with \code{varNames}. Otherwise, the default names "Vx" are set.
 }
 \description{
 `FuzzyNumbersToMatrix` converts a list of triangular or trapezoidal fuzzy numbers into a matrix.

@@ -3,20 +3,20 @@
     Code
       FuzzyNumbersToMatrix(fuzzyList = testListTPFNs, trapezoidal = TRUE)
     Output
-           [,1] [,2] [,3] [,4]
-      [1,]    1    3    4    5
-      [2,]    2    6    7   10
-      [3,]   -2    1    5    9
+           V1 V2 V3 V4
+      [1,]  1  3  4  5
+      [2,]  2  6  7 10
+      [3,] -2  1  5  9
 
 ---
 
     Code
       FuzzyNumbersToMatrix(fuzzyList = testListTRFNs, trapezoidal = FALSE)
     Output
-           [,1] [,2] [,3]
-      [1,]    1    3    5
-      [2,]    2    6   10
-      [3,]   -2    1    9
+           V1 V2 V3
+      [1,]  1  3  5
+      [2,]  2  6 10
+      [3,] -2  1  9
 
 ---
 

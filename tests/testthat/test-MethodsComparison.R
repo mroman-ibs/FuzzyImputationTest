@@ -24,6 +24,8 @@ test_that("Function returns correct values", {
                                -1.6964713 ,-1.350383708, -0.07207102 , 0.289067511),
                         ncol = 4, byrow = TRUE)
   
+  colnames(testMatrix1) <- paste0("X",seq(1,4,by=1))
+  
   testDF1 <- as.data.frame(testMatrix1)
   
   testList1 <- MatrixToFuzzyNumbers(testMatrix1)
@@ -49,6 +51,8 @@ test_that("Function returns correct values", {
                                -0.8969491, -0.608124123 ,-0.30055712, 
                                -1.6964713 ,-1.350383708, -0.07207102 ),
                         ncol = 3, byrow = TRUE)
+  
+  colnames(testMatrix2) <- paste0("X",seq(1,3,by=1))
   
   testDF2 <- as.data.frame(testMatrix2)
   
