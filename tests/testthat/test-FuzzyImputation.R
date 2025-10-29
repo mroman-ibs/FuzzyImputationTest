@@ -20,9 +20,15 @@ test_that("Function returns correct values", {
                             1.736698607  ,         NA   ,        NA),
                           ncol=4)
   
+  colnames(testMatrix10NA) <- paste0("X",seq(1,3,by=1))
+  
   testDataFrame10NA <- as.data.frame(testMatrix10NA)
   
+  colnames(testMatrix1NA) <- paste0("X",seq(1,4,by=1))
+  
   testDataFrame1NA <- as.data.frame(testMatrix1NA)
+  
+
   
   
   # snapshots tests

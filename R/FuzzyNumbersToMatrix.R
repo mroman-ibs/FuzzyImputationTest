@@ -17,7 +17,6 @@
 #' @return
 #' The output is given as a matrix with 3 (for triangular fuzzy numbers)
 #' or 4 (for trapezoidal ones) columns and the number of rows is equal to number of fuzzy values.
-#' The names of the output columns can be given with \code{varNames}. Otherwise, the default names "Vx" are set.
 #'
 #'
 #'
@@ -118,10 +117,6 @@ FuzzyNumbersToMatrix <- function(fuzzyList,trapezoidal=TRUE,varNames=NA,...)
   {
     
     colnames(output) <- varNames
-    
-  } else {
-    
-    colnames(output) <- paste0("V",seq(1,ncol(output),by=1))
     
   }
   
