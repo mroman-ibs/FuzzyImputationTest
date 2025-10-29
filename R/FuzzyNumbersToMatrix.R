@@ -118,6 +118,10 @@ FuzzyNumbersToMatrix <- function(fuzzyList,trapezoidal=TRUE,varNames=NA,...)
     
     colnames(output) <- varNames
     
+  } else {
+    
+    colnames(output) <- paste0("V",seq(1,ncol(output),by=1))
+    
   }
   
   # FNs are converted to real values
