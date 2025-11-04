@@ -1,0 +1,11 @@
+bibentry(
+  bibtype = "Article",
+  title = "Fuzzy data imputation with {DIMP} and {FGAIN}",
+  author = "Maciej Romaniuk and Przemyslaw Grzegorzewski",
+  journal = "Journal of Computational Science",
+  year = "2026",
+  volume = "93",
+  number = "",
+  pages = "102738",
+  doi = "10.1016/j.jocs.2025.102738"
+)

@@ -87,6 +87,10 @@ MethodsComparison(matrix1,iterations=10,trapezoidal=TRUE)
 }
 
 }
+\references{
+M. Romaniuk, P. Grzegorzewski, “Fuzzy data imputation with DIMP and FGAIN",
+Journal of Computational Science, vol. 93, pp. 102738, 2026
+}
 \seealso{
 \code{\link{ImputationTests} for the single imputation benchmark, \link{summary.metComp}}.
 }

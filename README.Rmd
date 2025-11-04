@@ -28,15 +28,15 @@ values given by NAs) dataset that consists of triangular or trapezoidal
 fuzzy numbers, and check quality of such an imputation. To impute fuzzy
 values, various imputation methods - both general (like miceRanger,
 missingForest, knn), and specific ones (d-imputation method, abbreviated
-as DIMP, see [@rb23]) - can be used. To check the quality of the
+as DIMP, see [@ROMANIUK2026102738]) - can be used. To check the quality of the
 imputation process, the dataset without missing values can be specified,
-and then it is tested with the whole set of procedures. These procedures
+and then it is tested with the whole set of procedures (see [@ROMANIUK2026102738]). These procedures
 are related to calculation of various sample statistics like the mean,
 standard deviation, and some special distance measures for fuzzy
 numbers, together with obtaining different error values, and conduction
 of statistical tests based on the epistemic bootstrap (see
 [@grzegorzewski2021; @Grzegorzewski_Romaniuk_2022; @PGMR2024AMS]) from
-\code{FuzzySimRes} package (see [@FuzzySimResart]). There are also
+FuzzySimRes package (see [@FuzzySimResart]). There are also
 special procedures to fuzzify the input and introduce some NAs when
 necessary.
 

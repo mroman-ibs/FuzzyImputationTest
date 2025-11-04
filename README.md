@@ -4,6 +4,7 @@
 # FuzzyImputationTest
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 The goal of FuzzyImputationTest is to impute (i.e., replace missing
@@ -11,15 +12,16 @@ values given by NAs) dataset that consists of triangular or trapezoidal
 fuzzy numbers, and check quality of such an imputation. To impute fuzzy
 values, various imputation methods - both general (like miceRanger,
 missingForest, knn), and specific ones (d-imputation method, abbreviated
-as DIMP, see (Romaniuk and Grzegorzewski 2023)) - can be used. To check
-the quality of the imputation process, the dataset without missing
+as DIMP, see (Maciej Romaniuk and Grzegorzewski 2026)) - can be used. To
+check the quality of the imputation process, the dataset without missing
 values can be specified, and then it is tested with the whole set of
-procedures. These procedures are related to calculation of various
-sample statistics like the mean, standard deviation, and some special
-distance measures for fuzzy numbers, together with obtaining different
-error values, and conduction of statistical tests based on the epistemic
-bootstrap (see (P. Grzegorzewski and Romaniuk 2021, 2024; Przemyslaw
-Grzegorzewski and Romaniuk 2022)) from package (see (Romaniuk,
+procedures (see (Maciej Romaniuk and Grzegorzewski 2026)). These
+procedures are related to calculation of various sample statistics like
+the mean, standard deviation, and some special distance measures for
+fuzzy numbers, together with obtaining different error values, and
+conduction of statistical tests based on the epistemic bootstrap (see
+(P. Grzegorzewski and Romaniuk 2021, 2024; Przemyslaw Grzegorzewski and
+Romaniuk 2022)) from FuzzySimRes package (see (M. Romaniuk,
 Grzegorzewski, and Parchami 2024)). There are also special procedures to
 fuzzify the input and introduce some NAs when necessary.
 
@@ -151,18 +153,20 @@ and Computer Science* 32 (2): 285–97.
 
 </div>
 
-<div id="ref-rb23" class="csl-entry">
+<div id="ref-ROMANIUK2026102738" class="csl-entry">
 
-Romaniuk, M., and P. Grzegorzewski. 2023. “Fuzzy Data Imputation with
-DIMP and FGAIN.” RB/23/2023. Systems Research Institute, PAS.
+Romaniuk, Maciej, and Przemysław Grzegorzewski. 2026. “Fuzzy Data
+Imputation with DIMP and FGAIN.” *Journal of Computational Science* 93:
+102738. https://doi.org/<https://doi.org/10.1016/j.jocs.2025.102738>.
 
 </div>
 
 <div id="ref-FuzzySimResart" class="csl-entry">
 
 Romaniuk, M., P. Grzegorzewski, and A. Parchami. 2024. “FuzzySimRes:
-Epistemic Bootstrap – the Efficient Tool for Statistical Inference Based
-on Imprecise Data.” *R Journal*.
+Epistemic Bootstrap – an Efficient Tool for Statistical Inference Based
+on Imprecise Data.” *R Journal* 16 (2): 175–90.
+https://doi.org/<https://doi.org/10.32614/RJ-2024-016>.
 
 </div>
 

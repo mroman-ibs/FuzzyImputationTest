@@ -100,3 +100,7 @@ FuzzyImputation(matrix1NA,method = "miceRanger")
 
 
 }
+\references{
+M. Romaniuk, P. Grzegorzewski, “Fuzzy data imputation with DIMP and FGAIN",
+Journal of Computational Science, vol. 93, pp. 102738, 2026
+}

@@ -43,7 +43,11 @@
 #' @param verbose If \code{TRUE} is set, the current simulation number is printed.
 #' 
 #' @param ... Additional parameters that are passed to the imputation procedure.
+#' 
+#' @references
 #'
+#' M. Romaniuk, P. Grzegorzewski, “Fuzzy data imputation with DIMP and FGAIN",
+#' Journal of Computational Science, vol. 93, pp. 102738, 2026
 #'
 #' @examples
 #'
