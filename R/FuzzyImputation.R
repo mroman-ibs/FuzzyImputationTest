@@ -32,7 +32,7 @@
 #'
 #' @param dataToImpute Name of the input matrix (data frame or list) of fuzzy numbers with some NAs.
 #' 
-#' @param method Name of the imputation method (possible values: \code{dimp,missForest,miceRanger,knn}).
+#' @param method Name of the imputation method (possible values: \code{dimp,missForest,miceRanger,knn,pmm}).
 #'
 #'
 #' @param trapezoidal Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.
@@ -43,11 +43,14 @@
 #' @param verbose If \code{TRUE} is set, the current simulation number is printed.
 #' 
 #' @param ... Additional parameters that are passed to the imputation procedure.
-#' 
+#'
 #' @references
 #'
 #' M. Romaniuk, P. Grzegorzewski, “Fuzzy data imputation with DIMP and FGAIN",
 #' Journal of Computational Science, vol. 93, pp. 102738, 2026
+#' 
+#' M. Romaniuk, “Benchmarking imputation methods for fuzzy datasets",
+#' International Journal of Applied Mathematics and Computational Science, vol. 36, no. 2, pp. 223-234, 2026
 #'
 #' @examples
 #'
@@ -222,6 +225,7 @@ FuzzyImputation <- function(dataToImpute,method="dimp",trapezoidal=TRUE,checkFuz
       
       
     }
+    
     
     # use pmm from mice
     

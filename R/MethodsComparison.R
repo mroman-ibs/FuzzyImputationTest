@@ -45,7 +45,10 @@
 #'
 #' M. Romaniuk, P. Grzegorzewski, “Fuzzy data imputation with DIMP and FGAIN",
 #' Journal of Computational Science, vol. 93, pp. 102738, 2026
-#'
+#' 
+#' M. Romaniuk, “Benchmarking imputation methods for fuzzy datasets",
+#' International Journal of Applied Mathematics and Computational Science, vol. 36, no. 2, pp. 223-234, 2026
+#' 
 #' @examples
 #'
 #' # seed PRNG

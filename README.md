@@ -12,18 +12,18 @@ values given by NAs) dataset that consists of triangular or trapezoidal
 fuzzy numbers, and check quality of such an imputation. To impute fuzzy
 values, various imputation methods - both general (like miceRanger,
 missingForest, knn), and specific ones (d-imputation method, abbreviated
-as DIMP, see (Maciej Romaniuk and Grzegorzewski 2026)) - can be used. To
-check the quality of the imputation process, the dataset without missing
+as DIMP, see (Romaniuk and Grzegorzewski 2026)) - can be used. To check
+the quality of the imputation process, the dataset without missing
 values can be specified, and then it is tested with the whole set of
-procedures (see (Maciej Romaniuk and Grzegorzewski 2026)). These
+procedures (see (Romaniuk and Grzegorzewski 2026; Romaniuk 2026)). These
 procedures are related to calculation of various sample statistics like
 the mean, standard deviation, and some special distance measures for
 fuzzy numbers, together with obtaining different error values, and
 conduction of statistical tests based on the epistemic bootstrap (see
-(P. Grzegorzewski and Romaniuk 2021, 2024; Przemyslaw Grzegorzewski and
-Romaniuk 2022)) from FuzzySimRes package (see (M. Romaniuk,
-Grzegorzewski, and Parchami 2024)). There are also special procedures to
-fuzzify the input and introduce some NAs when necessary.
+(Grzegorzewski and Romaniuk 2021, 2024; Grzegorzewski and Romaniuk
+2022)) from FuzzySimRes package (see (Romaniuk et al. 2024)). There are
+also special procedures to fuzzify the input and introduce some NAs when
+necessary.
 
 The following procedures are available in the library:
 
@@ -126,21 +126,21 @@ For additional examples check the help files please.
 
 ## References
 
-<div id="refs" class="references csl-bib-body hanging-indent"
-entry-spacing="0">
+<div id="refs" class="references csl-bib-body hanging-indent">
 
 <div id="ref-grzegorzewski2021" class="csl-entry">
 
 Grzegorzewski, P., and M. Romaniuk. 2021. “Epistemic Bootstrap for Fuzzy
-Data.” In *Joint Proceedings of IFSA-EUSFLAT-AGOP 2021 Conferences*,
-538–45. Atlantis Press.
+Data.” In *Joint Proceedings of IFSA-EUSFLAT-AGOP 2021 Conferences*.
+Atlantis Press.
 
 </div>
 
 <div id="ref-PGMR2024AMS" class="csl-entry">
 
-———. 2024. “Bootstrapped Tests for Epistemic Fuzzy Data.” *International
-Journal of Applied Mathematics and Computer Science* 34 (2): 277–89.
+Grzegorzewski, P., and M. Romaniuk. 2024. “Bootstrapped Tests for
+Epistemic Fuzzy Data.” *International Journal of Applied Mathematics and
+Computer Science* 34 (2): 277–89.
 <https://doi.org/10.61822/amcs-2024-0020>.
 
 </div>
@@ -150,6 +150,15 @@ Journal of Applied Mathematics and Computer Science* 34 (2): 277–89.
 Grzegorzewski, Przemyslaw, and Maciej Romaniuk. 2022. “Bootstrap Methods
 for Epistemic Fuzzy Data.” *International Journal of Applied Mathematics
 and Computer Science* 32 (2): 285–97.
+
+</div>
+
+<div id="ref-Romaniuk2026" class="csl-entry">
+
+Romaniuk, Maciej. 2026. “Benchmarking Imputation Methods for Fuzzy
+Datasets.” *International Journal of Applied Mathematics and
+Computational Science* 36 (2): 223–34.
+<https://doi.org/10.61822/amcs-2026-0016>.
 
 </div>
 

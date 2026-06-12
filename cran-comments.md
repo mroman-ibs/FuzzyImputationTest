@@ -1,3 +1,10 @@
+I have prepared the new version (0.5.5) of my package. 
+
+* Main changes:
+- Added and corrected references.
+- Added vignettes.
+
+
 I have prepared the new version (0.5.2) of my package. 
 
 * Main changes:

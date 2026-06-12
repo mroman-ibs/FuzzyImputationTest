@@ -30,7 +30,7 @@ values, various imputation methods - both general (like miceRanger,
 missingForest, knn), and specific ones (d-imputation method, abbreviated
 as DIMP, see [@ROMANIUK2026102738]) - can be used. To check the quality of the
 imputation process, the dataset without missing values can be specified,
-and then it is tested with the whole set of procedures (see [@ROMANIUK2026102738]). These procedures
+and then it is tested with the whole set of procedures (see [@ROMANIUK2026102738; @Romaniuk2026]). These procedures
 are related to calculation of various sample statistics like the mean,
 standard deviation, and some special distance measures for fuzzy
 numbers, together with obtaining different error values, and conduction

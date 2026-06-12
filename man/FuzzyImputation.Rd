@@ -16,7 +16,7 @@ FuzzyImputation(
 \arguments{
 \item{dataToImpute}{Name of the input matrix (data frame or list) of fuzzy numbers with some NAs.}
 
-\item{method}{Name of the imputation method (possible values: \code{dimp,missForest,miceRanger,knn}).}
+\item{method}{Name of the imputation method (possible values: \code{dimp,missForest,miceRanger,knn,pmm}).}
 
 \item{trapezoidal}{Logical value depending on the type of fuzzy values (triangular or trapezoidal ones) in the dataset.}
 
@@ -103,4 +103,7 @@ FuzzyImputation(matrix1NA,method = "miceRanger")
 \references{
 M. Romaniuk, P. Grzegorzewski, “Fuzzy data imputation with DIMP and FGAIN",
 Journal of Computational Science, vol. 93, pp. 102738, 2026
+
+M. Romaniuk, “Benchmarking imputation methods for fuzzy datasets",
+International Journal of Applied Mathematics and Computational Science, vol. 36, no. 2, pp. 223-234, 2026
 }
