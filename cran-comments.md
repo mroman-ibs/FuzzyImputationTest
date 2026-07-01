@@ -3,6 +3,7 @@ I have prepared the new version (0.5.5) of my package.
 * Main changes:
 - Added and corrected references.
 - Added vignettes.
+- Corrected errors in the previous submission.
 
 
 I have prepared the new version (0.5.2) of my package. 

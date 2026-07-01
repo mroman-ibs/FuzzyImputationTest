@@ -9,3 +9,5 @@
 ^.github
 ^test_paper.R
 
+^\.positai$
+^\.claude$
