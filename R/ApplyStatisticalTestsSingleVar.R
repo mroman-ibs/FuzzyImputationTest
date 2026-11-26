@@ -22,7 +22,7 @@ ApplyStatisticalTestsSingleVar <- function(trueData,imputedData,imputedMask,trap
   
   dataWithoutChangesFuzzy <- MatrixToFuzzyNumbers(dataWithoutChanges)
   
-  dataFromImputationFuzzy <- MatrixToFuzzyNumbers(dataFromImputation[trueFNRowsNumbers,])
+  dataFromImputationFuzzy <- MatrixToFuzzyNumbers(dataFromImputation[trueFNRowsNumbers,,drop=FALSE])
   
   dataBeforeImputationFuzzy <- MatrixToFuzzyNumbers(dataBeforeImputation)
   

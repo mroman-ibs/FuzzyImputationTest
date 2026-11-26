@@ -1,3 +1,9 @@
+I have prepared the new version (0.5.6) of my package. 
+
+* Main changes:
+- Corrected error for the new version of mice package.
+
+
 I have prepared the new version (0.5.5) of my package. 
 
 * Main changes:
